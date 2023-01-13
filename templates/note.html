@@ -1,0 +1,37 @@
+{% extends "page.html" %}
+{% block title %}{{ note.title|e }}{% endblock %}
+{% block links %}
+{% if note.links or note.backlinks or note.neighbors %}
+<hr>
+{% endif %}
+{% if note.links %}
+<section id="links">
+  <h3>Links</h3>
+  <ul>
+  {% for link in note.links.values()|sort(attribute='title') %}
+    <li><a href="/{{ link.identifier|e }}.html">{{ link.title|e }}</a></li>
+  {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% if note.backlinks %}
+<section id="backlinks">
+  <h3>Backlinks</h3>
+  <ul>
+  {% for link in note.backlinks.values()|sort(attribute='title') %}
+    <li><a href="/{{ link.identifier|e }}.html">{{ link.title|e }}</a></li>
+  {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% if note.neighbors %}
+<section id="neighbors">
+  <h3>Neighbors</h3>
+  <ul>
+  {% for link in note.neighbors.values()|sort(attribute='title') %}
+    <li><a href="/{{ link.identifier|e }}.html">{{ link.title|e }}</a></li>
+  {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+  <head>
+    <title>{% block title %}{% endblock %} - Knowledge Graph</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/static/mvp.css">
+    <link rel="stylesheet" href="/static/search.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/tabbed.css">
+    <script src="/static/flexsearch.js" defer></script>
+    <script src="/static/search.js" defer></script>
+    <script src="/static/tabbed.js" defer></script>
+  </head>
+  <body id="top">
+    <header>
+      <nav>
+        <a href="/">
+          <h3>
+            <svg width="1rem" height="1rem" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <use href="/static/feather-sprite.svg#zap"/>
+            </svg>
+            <span>Knowledge Graph</span>
+          </h3>
+        </a>
+        <ul>
+          <li>
+            <div id="search-icon">
+              <svg width="1rem" height="1rem" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <use href="/static/feather-sprite.svg#search"/>
+              </svg>
+            </div>
+          </li>
+          <li>
+            <a href="https://github.com/dadevel">
+              <svg width="1rem" height="1rem" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <use href="/static/feather-sprite.svg#github"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/0x64616e">
+              <svg width="1rem" height="1rem" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <use href="/static/feather-sprite.svg#twitter"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {% block content %}{% endblock %}
+      {% block links %}{% endblock %}
+    </main>
+    <footer>
+      <hr>
+      <a href="#top">Top</a>
+      <p><small>Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small></p>
+    </footer>
+    <aside>
+      <div id="search-container" style="display: hidden">
+        <div id="search-space">
+          <input autocomplete="off" id="search-bar" name="search" type="text" placeholder="Search for something...">
+          <div id="results-container"></div>
+        </div>
+      </div>
+    </aside>
+  </body>
+</html>

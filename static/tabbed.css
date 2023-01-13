@@ -1,0 +1,91 @@
+/* from https://facelessuser.github.io/pymdown-extensions/extensions/tabbed/ */
+
+.tabbed-set {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em 0;
+  border-radius: var(--border-radius);
+
+  /* mvp override */
+  background-color: #d9ecfd;
+}
+
+.tabbed-set > input {
+  display: none;
+}
+
+.tabbed-set label {
+  width: auto;
+  padding: 0.9375em 1.25em 0.78125em;
+  font-weight: 700;
+  font-size: 0.84em;
+  white-space: nowrap;
+  border-bottom: 0.15rem solid transparent;
+  border-top-left-radius: 0.1rem;
+  border-top-right-radius: 0.1rem;
+  cursor: pointer;
+  transition: background-color 250ms, color 250ms;
+
+  /* mvp override */
+  margin-bottom: 0;
+  top: 0 !important;
+}
+
+.tabbed-set .tabbed-content {
+  width: 100%;
+  display: none;
+
+  /* mvp override */
+  box-shadow: none;
+  background-color: #ebf5fe;
+  padding: 1rem;
+}
+
+/* mvp override */
+.tabbed-content code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.tabbed-content p:first-child {
+  margin-top: 0;
+}
+
+.tabbed-set input {
+  position: absolute;
+  opacity: 0;
+}
+
+.tabbed-set input:checked:nth-child(n+1) + label {
+  /* mvp override */
+  /*
+  color: var(--color-link);
+  border-color: var(--color-link);
+  */
+  background-color: #ebf5fe;
+}
+
+/* disable link in table title for unselected tabs */
+.tabbed-set input:not(:checked):nth-child(n+1) + label a {
+  pointer-events: none;
+  color: var(--color-text);
+}
+
+.tabbed-set input:checked:nth-child(n+1) + label a {
+  pointer-events: all;
+  color: var(--color-link);
+}
+
+@media screen {
+  .tabbed-set input:nth-child(n+1):checked + label + .tabbed-content {
+    order: 99;
+    display: block;
+  }
+}
+
+@media print {
+  .tabbed-content {
+    display: contents;
+  }
+}
