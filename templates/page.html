@@ -8,11 +8,13 @@
     {{ note.title|e }}
     {% if options.dev %}
     <a href="kb:///{{ note.identifier|e }}.md">
+    {% else %}
+    <a href="https://github.com/dadevel/knowledge-graph/edit/main/graph/{{ note.identifier|e }}.md">
+    {% endif %}
       <svg width="1rem" height="1rem" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <use href="/static/feather-sprite.svg#edit-2"/>
       </svg>
     </a>
-    {% endif %}
   </h2>
   <small><p>{{ note.modified_at.strftime('%d %b %Y') }} · {% if not note.authors %}anonymous{% else %}{% for author in note.authors %}<a href="https://github.com/{{ author|e }}">{{ author|e }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p></small>
   {% if note.content %}
