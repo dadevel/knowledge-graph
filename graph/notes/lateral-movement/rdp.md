@@ -142,4 +142,5 @@ Allow an unprivileged user to login over RDP.
 
 ~~~ bat
 net.exe localgroup "Remote Desktop Users" jdoe /add
+net.exe localgroup Remotedesktopbenutzer jdoe /add
 ~~~
