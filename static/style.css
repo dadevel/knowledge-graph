@@ -19,15 +19,19 @@ nav a {
   text-decoration: none !important;
 }
 
+nav h6 {
+  margin: 0;
+}
+
 header, footer, main {
   padding: 0;
 }
 
-div.highlight {
+#content div.highlight {
   background: none !important;
 }
 
-#links, #backlinks, #neighbors, #updates {
+#links section {
   display: block;
 }
 
@@ -41,7 +45,7 @@ span.broken {
 }
 */
 
-figcaption a {
+#content figcaption a {
   color: inherit;
   text-decoration: underline;
   font-weight: normal;
@@ -53,7 +57,7 @@ small a {
   font-weight: normal;
 }
 
-article blockquote {
+#content blockquote {
   background-color: var(--color-accent);
   border-radius: var(--border-radius);
   max-width: none;
@@ -61,11 +65,13 @@ article blockquote {
   font-size: inherit;
 }
 
-pre {
+#content pre {
+  margin: 0;
+  padding: 0;
   max-width: 100%;
 }
 
-pre code {
+#content pre code {
   max-width: 100%;
   padding: 1rem;
   margin: 0.5em 0;
@@ -74,18 +80,11 @@ pre code {
   display: inline-block;
 }
 
-article pre {
+#content .tabbed-content pre code {
   padding: 0;
-  margin: 0;
 }
 
-/*
-article code {
-  padding: 1rem;
-}
-*/
-
-article p code {
+#content p code {
   padding: 0;
   display: inline;
 }
@@ -94,11 +93,43 @@ hr {
   margin: 2rem 0;
 }
 
-blockquote ul {
+#content blockquote ul {
   margin-left: 1rem;
   padding: 0;
 }
 
-article a {
+a {
   font-weight: normal;
+}
+
+#content main h1 {
+  font-size: x-large;
+}
+
+#content main h2 {
+  font-size: larger;
+}
+
+#content main h3, h4, h5, h6 {
+  font-size: large;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+h2, h3 {
+  font-size: x-large;
+}
+
+h4 {
+  font-size: larger;
+}
+
+h5 {
+  font-size: large;
+}
+
+h6 {
+  font-size: medium;
 }

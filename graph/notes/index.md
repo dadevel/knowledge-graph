@@ -1,6 +1,6 @@
 ---
-title: Index
-template: frontpage
+title: Knowledge Graph
+template: noteindex
 ---
 
 Hi there 👋,  
@@ -8,7 +8,7 @@ this is a knowledge base centered around pentesting and red teaming.
 
 **Disclaimer:** All information on this website is provided for educational and research purposes only. The authors are not responsible for any illegal use.
 
-### Notes by Folder
+# Notes by Folder
 
 - [[notes/file-transfer/index]]
 - [[notes/lateral-movement/index]]
@@ -18,7 +18,7 @@ this is a knowledge base centered around pentesting and red teaming.
 - [[notes/windows/index]]
 - more to come ...
 
-### Notes by MITRE ATT&CK Tactic
+# Notes by MITRE ATT&CK Tactic
 
 - [[notes/mitre-attack/reconnaissance]]
 - [[notes/mitre-attack/resource-development]]
@@ -36,7 +36,7 @@ this is a knowledge base centered around pentesting and red teaming.
 - [[notes/mitre-attack/impact]]
 
 <!--
-### Notes by Assessment
+# Notes by Assessment
 
 - External Network Pentest
 - Internal Network Pentest

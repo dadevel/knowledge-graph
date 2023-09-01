@@ -18,44 +18,20 @@
     <small><p>{{ page.modified_at.strftime('%d.%m.%Y') }} · {% if not page.authors %}anonymous{% else %}{% for author in page.authors %}<a href="https://github.com/{{ author|e }}">{{ author|e }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p></small>
   </header>
   <main>
-    {% if page.content %}
     {{ page.content }}
-    {% else %}
-    <p>Under construction 🚧</p>
-    {% endif %}
   </main>
 </article>
 {% endblock %}
 {% block links %}
-{% if page.links or page.backlinks or page.neighbors %}
+{% if posts %}
 <hr>
-{% endif %}
-{% if page.links %}
 <section>
-  <h3>Links</h3>
+  <h3>Recent Posts</h3>
   <ul>
-  {% for link in page.links.values()|sort(attribute='title') %}
-    <li><a href="/{{ link.identifier|e }}.html">{{ link.title|e }}</a></li>
-  {% endfor %}
-  </ul>
-</section>
-{% endif %}
-{% if page.backlinks %}
-<section>
-  <h3>Backlinks</h3>
-  <ul>
-  {% for link in page.backlinks.values()|sort(attribute='title') %}
-    <li><a href="/{{ link.identifier|e }}.html">{{ link.title|e }}</a></li>
-  {% endfor %}
-  </ul>
-</section>
-{% endif %}
-{% if page.neighbors %}
-<section>
-  <h3>Neighbors</h3>
-  <ul>
-  {% for link in page.neighbors.values()|sort(attribute='title') %}
-    <li><a href="/{{ link.identifier|e }}.html">{{ link.title|e }}</a></li>
+  {% for post in posts %}
+    <li>
+      <a href="/{{ post.identifier|e }}.html">{{ post.modified_at.strftime('%d.%m.%Y') }} - {{ post.title|e }}</a>
+    </li>
   {% endfor %}
   </ul>
 </section>

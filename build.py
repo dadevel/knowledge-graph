@@ -34,9 +34,9 @@ WIKILINK_REGEX = r'\[\[([a-zA-Z0-9-/#]+)(?:\|(.+?))?\]\]'
 
 
 class MarkdownFile(Markdown):
-    def __init__(self, note: Note, notes: dict[str, Note], **kwargs) -> None:
-        self.note = note
-        self.notes = notes
+    def __init__(self, page: Page, pages: dict[str, Page], **kwargs) -> None:
+        self.page = page
+        self.pages = pages
         self.links = set()
         super().__init__(**kwargs)
 
@@ -63,30 +63,30 @@ class WikiLinksInlineProcessor(InlineProcessor):
             return '', match.start(0), match.end(0)
 
         self.md.links.add(path)
-        note = self.md.notes.get(path, None)
+        page = self.md.pages.get(path, None)
 
         if match.group(2):
             # use custom link title
             title = match.group(2).strip()
-        elif note:
-            # use default note title
-            title = note.title.strip()
+        elif page:
+            # use default page title
+            title = page.title.strip()
         else:
             # broken link
             title = path.replace('-', ' ').title().strip()
 
-        if note and not note.draft:
+        if page and not page.draft:
             e = Element('a')
             e.text = title
             e.set('href', f'/{path}.html')
             e.set('class', 'wikilink')
-        elif note and note.draft:
+        elif page and page.draft:
             e = Element('span')
             e.text = title
             e.set('class', 'wikilink broken')
         else:
-            if not self.md.note.draft:
-                print(f'warning: {self.md.note.path}: broken wikilink: {match.group()}', file=sys.stderr)
+            if not self.md.page.draft:
+                print(f'warning: {self.md.page.path}: broken wikilink: {match.group()}', file=sys.stderr)
             e = Element('a')
             e.text = title
             e.set('href', f'/{path}.html')
@@ -134,7 +134,7 @@ class ImageCaptionExtension(Extension):
 
 
 @dataclasses.dataclass
-class Note:
+class Page:
     path: Path  # full path to source markdown file
     identifier: str  # relative path without file extension
     title: str  # tile from frontmatter
@@ -143,12 +143,12 @@ class Note:
     modified_at: datetime  # last git commit
     authors: list[str]  # git authors
     draft: bool = True  # draft if not committed to git
-    links: dict[str, Note] = dataclasses.field(default_factory=dict)  # outgoing wikilinks
-    backlinks: dict[str, Note] = dataclasses.field(default_factory=dict)  # incoming wikilinks
-    neighbors: dict[str, Note] = dataclasses.field(default_factory=dict)  # notes in same directory
+    links: dict[str, Page] = dataclasses.field(default_factory=dict)  # outgoing wikilinks
+    backlinks: dict[str, Page] = dataclasses.field(default_factory=dict)  # incoming wikilinks
+    neighbors: dict[str, Page] = dataclasses.field(default_factory=dict)  # pages in same directory
 
     @classmethod
-    def from_file(cls, path: Path) -> Note:
+    def from_file(cls, path: Path) -> Page:
         with open(path) as file:
             try:
                 frontmatter = next(yaml.safe_load_all(file))
@@ -203,10 +203,10 @@ class HTMLFilter(HTMLParser):
         return f.text.strip()
 
 
-def preprocess_note(all_notes: dict[str, Note], public_notes: dict[str, Note], note: Note) -> None:
+def preprocess_page(all_pages: dict[str, Page], public_pages: dict[str, Page], page: Page) -> None:
     file = MarkdownFile(
-        note,
-        all_notes,
+        page,
+        all_pages,
         extensions=[
             'meta',
             'tables',
@@ -218,20 +218,29 @@ def preprocess_note(all_notes: dict[str, Note], public_notes: dict[str, Note], n
         ],
         output_format='html',
     )
-    note.content = file.convert(note.path.read_text())
-    note.links = {identifier: public_notes[identifier] for identifier in file.links if identifier in public_notes}
+    page.content = file.convert(page.path.read_text())
+    page.links = {identifier: public_pages[identifier] for identifier in file.links if identifier in public_pages}
 
 
-def render_note(environment: Environment, opts: Namespace, public_notes: dict[str, Note], note: Note) -> None:
-    template = note.template if note.template else 'note'
-    final_html = environment.get_template(f'{template}.html').render(note=note, options=opts, notes=public_notes)
-    output_file = OUTPUT_DIR/note.path.relative_to(GRAPH_DIR).with_suffix('.html')
+def render_page(environment: Environment, opts: Namespace, public_pages: dict[str, Page], page: Page) -> None:
+    if page.template:
+        template = page.template
+    elif page.identifier.startswith('posts/'):
+        template = 'post'
+    elif page.identifier.startswith('notes/'):
+        template = 'note'
+    else:
+        raise RuntimeError('failed to determine page template')
+    public_notes = list(sorted((other for other in public_pages.values() if page.identifier != other.identifier and other.identifier != 'notes/index' and other.identifier.startswith('notes/')), key=lambda p: (p.modified_at, p.title)))
+    public_posts = list(sorted((other for other in public_pages.values() if page.identifier != other.identifier and other.identifier != 'posts/index' and other.identifier.startswith('posts/')), key=lambda p: (p.modified_at, p.title)))
+    final_html = environment.get_template(f'{template}.html').render(page=page, options=opts, pages=public_pages, notes=public_notes, posts=public_posts)
+    output_file = OUTPUT_DIR/page.path.relative_to(GRAPH_DIR).with_suffix('.html')
     output_file.parent.mkdir(parents=True, exist_ok=True)
     output_file.write_bytes(final_html.encode('utf-8', errors='xmlcharrefreplace'))
 
 
-def build_search_index(public_notes: dict[str, Note]) -> None:
-    data = {identifier: dict(title=note.title, content=note.plaintext, url=f'/{identifier}.html', modified_at=note.modified_at.strftime('%d %b %Y')) for identifier, note in public_notes.items()}
+def build_search_index(public_pages: dict[str, Page]) -> None:
+    data = {identifier: dict(title=page.title, content=page.plaintext, url=f'/{identifier}.html', modified_at=page.modified_at.strftime('%d.%m.%Y')) for identifier, page in public_pages.items()}
     index_file = OUTPUT_DIR/'index.json'
     with open(index_file, 'w') as file:
         json.dump(data, file)
@@ -252,39 +261,39 @@ def do_work(opts: Namespace, pool: ThreadPoolExecutor) -> None:
     OUTPUT_DIR.mkdir()
 
     print(f'parsing', file=sys.stderr)
-    all_notes = {}
-    for note in pool.map(Note.from_file, NODES):
-        all_notes[note.identifier] = note
-    public_notes = all_notes if opts.dev else {identifier: note for identifier, note in all_notes.items() if not note.draft}
+    all_pages = {}
+    for page in pool.map(Page.from_file, NODES):
+        all_pages[page.identifier] = page
+    public_pages = all_pages if opts.dev else {identifier: page for identifier, page in all_pages.items() if not page.draft}
 
     print(f'preprocessing', file=sys.stderr)
-    for _ in pool.map(functools.partial(preprocess_note, all_notes, public_notes), public_notes.values()):
+    for _ in pool.map(functools.partial(preprocess_page, all_pages, public_pages), public_pages.values()):
         continue
 
     print(f'backlinking', file=sys.stderr)
-    for current_indentifier, current_note in public_notes.items():
-        current_note.backlinks = {
-            other_indentifier: other_note
-            for other_indentifier, other_note in public_notes.items()
-            if current_indentifier in other_note.links
+    for current_indentifier, current_page in public_pages.items():
+        current_page.backlinks = {
+            other_indentifier: other_page
+            for other_indentifier, other_page in public_pages.items()
+            if current_indentifier in other_page.links
         }
-        parent_identifier = current_note.path.parent.relative_to(GRAPH_DIR).as_posix().lower()
-        current_note.neighbors = {
-            other_identifier: other_note
-            for other_identifier, other_note in public_notes.items()
-            if other_note.identifier != current_indentifier
-            and other_note.path.parent.relative_to(GRAPH_DIR).as_posix().lower() == parent_identifier
-            and other_identifier not in current_note.links
-            and other_identifier not in current_note.backlinks
+        parent_identifier = current_page.path.parent.relative_to(GRAPH_DIR).as_posix().lower()
+        current_page.neighbors = {
+            other_identifier: other_page
+            for other_identifier, other_page in public_pages.items()
+            if other_page.identifier != current_indentifier
+            and other_page.path.parent.relative_to(GRAPH_DIR).as_posix().lower() == parent_identifier
+            and other_identifier not in current_page.links
+            and other_identifier not in current_page.backlinks
         }
 
-    print(f'rendering notes', file=sys.stderr)
+    print(f'rendering pages', file=sys.stderr)
     environment = Environment(loader=FileSystemLoader(TEMPLATE_DIR), autoescape=False)
-    for _ in pool.map(functools.partial(render_note, environment, opts, public_notes), public_notes.values()):
+    for _ in pool.map(functools.partial(render_page, environment, opts, public_pages), public_pages.values()):
         continue
 
     print('building search index', file=sys.stderr)
-    build_search_index(public_notes)
+    build_search_index(public_pages)
 
     print(f'copying attachments', file=sys.stderr)
     for _ in pool.map(copy_attachment, ATTACHMENTS):

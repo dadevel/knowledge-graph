@@ -1,0 +1,12 @@
+{% extends "post.html" %}
+{% block title %}{{ page.title|e }}{% endblock %}
+{% block content %}
+<article>
+  <header>
+    <h1>{{ page.title|e }}</h1>
+  </header>
+  <main>
+    {{ page.content }}
+  </main>
+</article>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "note.html" %}
+{% block title %}{{ page.title|e }}{% endblock %}
+{% block content %}
+<article>
+  <header>
+    <h1>{{ page.title|e }}</h1>
+  </header>
+  <main>
+    {{ page.content }}
+  </main>
+</article>
+{% endblock %}
+{% block links %}
+<section>
+  <h3>Recent Updates</h3>
+  <ul>
+  {% for note in notes|batch(10)|first %}
+    <li>
+      <a href="/{{ note.identifier|e }}.html">{{ note.modified_at.strftime('%d.%m.%Y') }} - {{ note.title|e }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</section>
+{% endblock %}
