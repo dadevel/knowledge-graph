@@ -80,3 +80,16 @@ References:
 - [twitter.com/an0n_r0/status/1670007830072500225](https://twitter.com/an0n_r0/status/1670007830072500225)
 - [Headless Remote Chrome Debugging](https://gist.github.com/NotMedic/b1ab7809eea94cc05513905b26964663)
 - [Stalking inside of your Chromium Browser](https://web.archive.org/web/20221202231214/https://scribe.rip/@specterops/stalking-inside-of-your-chromium-browser-757848b67949)
+
+# Unsaved Notepad
+
+Dump the content of an open `notepad.exe` window that is not written to a file ([source](https://twitter.com/NinjaParanoid/status/1695682038593110193)):
+
+~~~ bat
+rundll32.exe comsvcs.dll MiniDump %PID% .\notepad.log full
+strings.exe --encoding=l .\notepad.log
+~~~
+
+# Notepad++ Backups
+
+Inspect files in `%USERPROFILE%\AppData\Roaming\Notepad++\backup`.

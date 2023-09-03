@@ -7,6 +7,7 @@ This is commonly known as *Bring your own vulnerable driver* (BYOVD).
 
 Untested tools:
 
+- [hvci-loldrivers-check](https://github.com/trailofbits/HVCI-loldrivers-check), extracts HVCI blocklist on current system and compares against all drivers from [loldrivers.io](https://www.loldrivers.io/)
 - [check_vulnerabledrivers.ps1](https://gist.github.com/api0cradle/d52832e36aaf86d443b3b9f58d20c01d), check installed drivers against [loldrivers.io](https://www.loldrivers.io/)
 
 References:

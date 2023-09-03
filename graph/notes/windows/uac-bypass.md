@@ -11,6 +11,7 @@ Untested tools:
 
 References:
 
+- [twitter.com/splinter_code/status/1695839278176108735](https://twitter.com/splinter_code/status/1695839278176108735) and [Accessing Access Tokens for UIAccess](http://web.archive.org/web/20230531102216/https://www.tiraniddo.dev/2019/02/accessing-access-tokens-for-uiaccess.html), overcomplicated UAC bypass involving UI automation
 - [Advanced Windows Task Scheduler Playbook - Part.2 from COM to UAC bypass and get SYSTEM dirtily](http://web.archive.org/web/20230723100015/https://www.zcgonvh.com/post/Advanced_Windows_Task_Scheduler_Playbook-Part.2_from_COM_to_UAC_bypass_and_get_SYSTEM_dirtectly.html)
 - [UAC bypass through Trusted Folder abuse](http://web.archive.org/web/20230310190607/https://redteamer.tips/uac-bypass-through-trusted-folder-abuse/)
 - [Exploiting environment variables in scheduled tasks for UAC bypass](http://web.archive.org/web/20221206201830/https://www.tiraniddo.dev/2017/05/exploiting-environment-variables-in.html)
