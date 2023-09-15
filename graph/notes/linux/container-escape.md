@@ -84,6 +84,10 @@ grep Cap /proc/self/status
 
 Decode the output with `capsh --decode=00000000a80425fb`.
 
+References:
+
+- [7 Ways to Escape a Container](http://web.archive.org/web/20230905200448/https://www.panoptica.app/research/7-ways-to-escape-a-container), exploitation of `SYS_ADMIN`, `SYS_PTRACE`, `SYS_MODULE`, `DAC_READ_SEARCH` and `DAC_OVERRIDE` capabilities
+
 # Bind Mounts
 
 Direct access to storage devices.

@@ -52,7 +52,13 @@ cat /etc/group
 
 # Processes
 
-Running processes.
+Tree of running processes ([source](https://twitter.com/CraigHRowland/status/1701058386954170478)).
+
+~~~ bash
+ps -auxwwf | less -S
+~~~
+
+List of running processes.
 
 ~~~ bash
 ps aux || cat /proc/sched_debug

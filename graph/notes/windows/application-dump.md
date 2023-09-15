@@ -17,6 +17,8 @@ Tool | Language | Access | Supported Applications
 [OutlookSpy](https://github.com/acole76/OutlookSpy) | C# | Local | Outlook
 [SessionGopher](https://github.com/Arvanaghi/SessionGopher) | PowerShell | Local | WinSCP, PuTTY, FileZilla, RDP
 [strings2](https://github.com/glmcdona/strings2) + [ProcessStringExtractor](https://gist.github.com/LuemmelSec/3f2c4b7642dc7b2ae63601ed02ec3db5) | C + PowerShell | Local | generic, find patterns in process memory
+[PMP-Decrypter](https://github.com/LuemmelSec/PMP-Decrypter) | C# | Local | Patch My PC
+[dumpscan](https://github.com/daddycocoaman/dumpscan) | Python | Remote | Find certificates in Minidumps
 
 Dump DPAPI-protected secrets remotely and decrypt them with the domain backup key, the users password or NT hash.
 
