@@ -95,3 +95,9 @@ strings.exe --encoding=l .\notepad.log
 # Notepad++ Backups
 
 Inspect files in `%USERPROFILE%\AppData\Roaming\Notepad++\backup`.
+
+# ProtonPass
+
+References:
+
+- [ProtonPass: Auch nach Sperrung des Passwortspeichers verbleiben Nutzername/Passwort im Hauptspeicher](https://www.kuketz-blog.de/protonpass-auch-nach-sperrung-des-passwortspeichers-verbleiben-nutzername-passwort-im-hauptspeicher/), MiniDump contains plain passwords even if password manager is locked

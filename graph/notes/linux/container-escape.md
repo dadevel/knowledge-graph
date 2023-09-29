@@ -3,7 +3,7 @@ title: Linux Container Escape
 ---
 
 Break out of insecure containers on [[notes/linux/index]].
-Don't forget to check [[notes/linux/credential-access-user]] and [[notes/linux/privilege-escalation-kernel-exploits]].
+Don't forget to check [[notes/linux/credential-access-user]] and [[notes/linux/escalation-kernel-exploits]].
 
 Untested tools:
 

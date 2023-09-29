@@ -158,9 +158,15 @@ Outgoing connections.
 
 Recent DNS lookups ([source](https://twitter.com/EricaZelic/status/1691911899850654190)).
 
-~~~ powershell
-Get-DNSClientCache
-~~~
+=== "PowerShell"
+    ~~~ powershell
+    Get-DNSClientCache
+    ~~~
+
+=== "builtin"
+    ~~~ bat
+    ipconfig.exe /displaydns
+    ~~~
 
 Firewall rules.
 

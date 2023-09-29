@@ -17,7 +17,8 @@ Untested tools:
 
 References:
 
-- [hacktricks.xyz](https://book.hacktricks.xyz/linux-unix/linux-privilege-escalation-checklist)
+- [book.hacktricks.xyz/linux-unix/linux-privilege-escalation-checklist](https://book.hacktricks.xyz/linux-unix/linux-privilege-escalation-checklist)
+- [exploit-notes.hdks.org/exploit/linux/privilege-escalation](https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/)
 
 # Discovery
 

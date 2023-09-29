@@ -42,4 +42,5 @@ Establish a connection.
 
 Untested tools:
 
+- [awinrm](https://github.com/skelsec/awinrm)
 - [pywinrm](https://github.com/diyan/pywinrm)

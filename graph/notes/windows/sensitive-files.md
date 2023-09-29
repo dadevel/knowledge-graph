@@ -8,13 +8,12 @@ Search for passwords in the PowerShell history.
 
 === "PowerShell"
     ~~~ powershell
-    Get-ChildItem -ErrorAction SilentlyContinue -Force ~\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\*.txt | Select-String -Pattern 'passw|secure-string' | Select-Object -Property Line
+    Get-ChildItem -ErrorAction SilentlyContinue -Force ~\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\*.txt | Select-String -Pattern 'passw|secure-string|save-azcontext' | Select-Object -Property Line
     ~~~
 
 === "builtin"
     ~~~ bat
     findstr.exe /i passw %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\*.txt
-    findstr.exe /i secure-string %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\*.txt
     ~~~
 
 Recursively search for passwords in the current directory.
@@ -28,6 +27,13 @@ Recursively search for passwords in the current directory.
     ~~~ bat
     findstr.exe /si passw .\*
     ~~~
+
+Other sensitive files:
+
+~~~
+~/.Azure/AzureRmContext.json
+~/.Azure/TokenCache.dat
+~~~
 
 List files in recycle bin.
 

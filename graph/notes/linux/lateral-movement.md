@@ -52,14 +52,14 @@ An attacker with *GenericWrite* on a user or computer account can set the *userP
 Login interactively with the password of a domain user trough Kerberos.
 
 ~~~ bash
-ssh jdoeadm@corp.local@srv01.corp.local
+ssh -o GSSAPIAuthentication=yes jdoeadm@corp.local@srv01.corp.local
 ~~~
 
 Pass the ticket to SSH.
 
 ~~~ bash
 export KRB5CCNAME=./jdoeadm.ccache
-ssh jdoeadm@corp.local@srv01.corp.local
+ssh -o GSSAPIAuthentication=yes jdoeadm@corp.local@srv01.corp.local
 ~~~
 
 # LDAP

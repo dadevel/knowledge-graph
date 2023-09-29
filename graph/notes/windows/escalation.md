@@ -48,10 +48,11 @@ Untested tools:
 
 References:
 
+- [book.hacktricks.xyz/windows/checklist-windows-privilege-escalation](https://book.hacktricks.xyz/windows/checklist-windows-privilege-escalation)
+- [exploit-notes.hdks.org/exploit/windows/privilege-escalation](https://exploit-notes.hdks.org/exploit/windows/privilege-escalation/)
 - [Escalating Privileges via Third-Party Windows Installers](https://web.archive.org/web/20230720190244/https://www.mandiant.com/resources/blog/privileges-third-party-windows-installers)
 - [The Print Spooler Bug that Wasn’t in the Print Spooler - Maddie Stone & James Forshaw - OffensiveCon23](https://www.youtube.com/watch?v=H03b0UaogVs), exploiting Windows side-by-side assemblies
 - [Awesome Windows logical bugs](https://github.com/sailay1996/awesome_windows_logical_bugs)
-- [book.hacktricks.xyz/windows/checklist-windows-privilege-escalation](https://book.hacktricks.xyz/windows/checklist-windows-privilege-escalation)
 - [Payloads all the Things - Windows Privilege Escalation](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md)
 
 # Insecure File Permissions
