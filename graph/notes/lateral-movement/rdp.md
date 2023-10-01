@@ -73,7 +73,7 @@ Authenticate over Kerberos.
     aardpclient 'rdp+kerberos-password://corp\jdoe:passw0rd@srv01.corp.local/?dc=dc01.corp.local'
     ~~~
 
-Kerberos support in `xfreerdp` and `rdesktop` seems to be incomplete.
+Kerberos support in `rdesktop` seems to be incomplete.
 `crackmapexec` should support it, but currently throws an exception.
 `aardwolf` does support it, but doesn't implement dynamic resolution and shared folders yet.
 
@@ -81,6 +81,7 @@ Kerberos support in `xfreerdp` and `rdesktop` seems to be incomplete.
 
 References:
 
+- [twitter.com/Defte_/status/1707370420515553356](https://twitter.com/Defte_/status/1707370420515553356), recompile [[notes/tools/freerdp]] with `WITH_GSSAP` for Kerberos support
 - [Abusing RDPs Remote Credential Guard with Rubeus PTT](http://web.archive.org/web/20230216004623/https://www.pentestpartners.com/security-blog/abusing-rdps-remote-credential-guard-with-rubeus-ptt/)
 
 # Certificated-based Authentication

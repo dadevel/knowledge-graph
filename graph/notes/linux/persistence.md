@@ -4,6 +4,10 @@ title: Linux Persistence
 
 [[notes/mitre-attack/persistence]] on [[notes/linux/index]].
 
+Untested tools:
+
+- [dt_infect](https://github.com/elfmaster/dt_infect), modify ELF binary to load additional shared object
+
 # SSH
 
 Append your own public key to `~/.ssh/authorized_keys`.

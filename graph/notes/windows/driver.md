@@ -2,8 +2,17 @@
 title: Kernel Driver
 ---
 
-Many 3rd-party [[notes/windows/index]] kernel drivers can be exploited to load root kits or blind EDRs.
-This is commonly known as *Bring your own vulnerable driver* (BYOVD).
+Many 3rd-party [[notes/windows/index]] kernel drivers can be exploited to load rootkits or blind EDRs.
+This is commonly known as *Bring your own vulnerable driver* (BYOVD), even so some drivers bring intended functionality that can be abused.
+
+Notes:
+
+- Microsoft maintains a blocklist of known vulnerable drivers, but the update process was broken for years
+- the Defender ASR rule *Block abuse of exploited vulnerable signed drivers* appears to be useless ([source](http://web.archive.org/web/20221017071614/https://arstechnica.com/information-technology/2022/10/how-a-microsoft-blunder-opened-millions-of-pcs-to-potent-malware-attacks/))
+- since Windows 11 vulnerable drivers are blocked by default, Windows 10 requires configuration with WDAC ([source](https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules))
+- Hypervisor-Protected Code Integrity (HVCI) effectively prevents execution of unsigned code in the kernel space
+- HVCI can be disabled by setting `HKLM\System\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity = 0`
+- you might be able to bypass known vulnerable driver block lists by [[notes/windows/authenticode]] signature tampering
 
 Untested tools:
 
@@ -12,6 +21,7 @@ Untested tools:
 
 References:
 
+- [List of vulnerable drivers](https://github.com/eclypsium/Screwed-Drivers/blob/master/DRIVERS.md)
 - [Living Off The Land Drivers](https://www.loldrivers.io/), authoritative reference
 - [Journey into Windows Kernel Exploitation: The Basics](http://web.archive.org/web/20230820105350/https://scribe.rip/@neuvik/journey-into-windows-kernel-exploitation-the-basics-fff72116ca33)
 - [gist.github.com/yardenshafir/048a957e7e52978b32e43a7e4e1e72bb](https://gist.github.com/yardenshafir/048a957e7e52978b32e43a7e4e1e72bb), vulnerable drivers from [loldrivers.io](https://www.loldrivers.io/) that load with HVCI blocklist version 25314
