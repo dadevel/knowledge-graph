@@ -18,11 +18,13 @@ Untested tools:
 
 - [hvci-loldrivers-check](https://github.com/trailofbits/HVCI-loldrivers-check), extracts HVCI blocklist on current system and compares against all drivers from [loldrivers.io](https://www.loldrivers.io/)
 - [check_vulnerabledrivers.ps1](https://gist.github.com/api0cradle/d52832e36aaf86d443b3b9f58d20c01d), check installed drivers against [loldrivers.io](https://www.loldrivers.io/)
+- [HackSysExtremeVulnerableDriver](https://github.com/hacksysteam/HackSysExtremeVulnerableDriver), driver to learn kernel exploitation
 
 References:
 
 - [List of vulnerable drivers](https://github.com/eclypsium/Screwed-Drivers/blob/master/DRIVERS.md)
 - [Living Off The Land Drivers](https://www.loldrivers.io/), authoritative reference
+- [Hunting Vulnerable Kernel Drivers](http://web.archive.org/web/20231101190125/https://blogs.vmware.com/security/2023/10/hunting-vulnerable-kernel-drivers.html) and [Driver Exploit PoCs](https://github.com/TakahiroHaruyama/VDR/tree/main/PoCs/firmware)
 - [Journey into Windows Kernel Exploitation: The Basics](http://web.archive.org/web/20230820105350/https://scribe.rip/@neuvik/journey-into-windows-kernel-exploitation-the-basics-fff72116ca33)
 - [gist.github.com/yardenshafir/048a957e7e52978b32e43a7e4e1e72bb](https://gist.github.com/yardenshafir/048a957e7e52978b32e43a7e4e1e72bb), vulnerable drivers from [loldrivers.io](https://www.loldrivers.io/) that load with HVCI blocklist version 25314
 - [Backdoors for Cross-Signed Drivers](http://web.archive.org/web/20230721015754/https://www.geoffchappell.com/notes/security/whqlsettings/index.htm), setting `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\CI\Policy\UpgradedSystem` to `1` allows loading of cross-signed drivers

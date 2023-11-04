@@ -59,6 +59,7 @@ hashcat -O -w 3 -a 0 -m 1800 '$6$...' ./rockyou.txt
 
 Untested tools:
 
+- [LinikatzV2](https://github.com/Orange-Cyberdefense/LinikatzV2), can extract plain passwords from memory
 - [tickey](https://github.com/TarlogicSecurity/tickey), extract Kerberos tickets from all users on Linux
 
 # Applications

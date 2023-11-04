@@ -1,5 +1,5 @@
 ---
-title: Remote Desktop Users
+title: Remote Desktop Users Group
 ---
 
-*Remote Desktop Users* / *Remotedesktopbenutzer* is a [[notes/windows/high-value-group]] because members can login via [[notes/network/rdp]].
+*Remote Desktop Users* / *Remotedesktopbenutzer* is one of the [[notes/windows/high-value-groups]] because members can login via [[notes/network/rdp]].

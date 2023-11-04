@@ -1,8 +1,8 @@
 ---
-title: Event Log Readers
+title: Event Log Readers Group
 ---
 
-*Event Log Readers* / *Ereignisprotokollleser* are a [[notes/windows/high-value-group]] because they can search for clear text passwords in events like:
+*Event Log Readers* / *Ereignisprotokollleser* is one of the [[notes/windows/high-value-groups]] because they can search for clear text passwords in events like:
 
 - PowerShell Script Block logging, event id 4103
 - PowerShell module logging, event id 4104

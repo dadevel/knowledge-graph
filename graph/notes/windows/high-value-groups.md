@@ -10,4 +10,4 @@ Interesting local groups:
 - [[notes/windows/group-eventlog-readers]]
 - [[notes/windows/group-backup-operators]]
 
-For AD groups see [[notes/ad/high-value-group]].
+Also see [[notes/ad/high-value-group]].

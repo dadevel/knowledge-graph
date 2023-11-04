@@ -1,5 +1,5 @@
 ---
-title: Administrators
+title: Administrators Group
 ---
 
-*Administrators* / *Administratoren* is a [[notes/windows/high-value-group]] because members have local admin rights.
+*Administrators* / *Administratoren* is one of the [[notes/windows/high-value-groups]] because members have local admin rights.

@@ -107,7 +107,7 @@ iptables -L && ip6tables -L || cat /etc/iptables/*
 Disks and mountpoints.
 
 ~~~ bash
-cat /etc/fstab 
+cat /etc/fstab
 mount
 ls -ld /dev/disk/by-id/*
 lsblk

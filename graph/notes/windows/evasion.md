@@ -43,6 +43,7 @@ References:
 - [Red Teaming in the EDR age - Wild West Hackin' Fest 2018](https://www.youtube.com/watch?v=l8nkXCOYQC4)
 - [docs.google.com/spreadsheets/u/0/d/1ZMFrD6F6tvPtf_8McC-kWrNBBec_6Si3NW6AoWf3Kbg/htmlview](https://docs.google.com/spreadsheets/u/0/d/1ZMFrD6F6tvPtf_8McC-kWrNBBec_6Si3NW6AoWf3Kbg/htmlview), telemetry sources of common EDRs
 - [twitter.com/Cyb3rMonk/status/1648743976407531525](https://twitter.com/Cyb3rMonk/status/1648743976407531525), EDRs cant log every event due to shear volume
+- [twitter.com/cyb3rops/status/1709583944763556108](https://twitter.com/cyb3rops/status/1709583944763556108), `C:\ProgramData\Microsoft\Windows Defender Advanced Threat Protection` is often excluded, because Microsoft stores shady scripts there
 - [Microsoft Anti-Virus exclusion recommendations by application](http://web.archive.org/web/20230101000458/https://social.technet.microsoft.com/wiki/contents/articles/953.microsoft-anti-virus-exclusion-list.aspx)
 
 # Blinding EDRs
@@ -118,6 +119,7 @@ Tested tools:
 
 Untested tools:
 
+- [EDRSnowblast](https://github.com/Orange-Cyberdefense/EDRSnowblast), based on EDRSandblast, supports `GDRV.sys`, can load unsigned drivers, can block communication between minifilter driver and userland ([source](http://web.archive.org/web/20231001131310/https://sensepost.com/blog/2023/filter-mute-operation-investigating-edr-internal-communication/))
 - [EchoDrv](https://github.com/YOLOP0wn/EchoDrv), remove kernel hooks trough `echo_driver.sys`
 
 References:

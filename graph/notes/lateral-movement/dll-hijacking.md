@@ -8,6 +8,7 @@ For example `gpupdate.exe` runs as `NT Authority\Network Service` and loads `C:\
 
 Untested tools:
 
+- [LatLoader](https://github.com/icyguider/LatLoader), includes evasion for various Elastic EDR rules
 - [DCOM DLL Hijacking](https://github.com/WKL-Sec/dcomhijack), upload DLL, trigger load trough DCOM
 
 # Fax Service

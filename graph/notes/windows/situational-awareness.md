@@ -12,6 +12,7 @@ Untested tools:
 
 References:
 
+- [Managing Local Administrators with Azure AD and Intune](http://web.archive.org/web/20230818070747/https://www.jeffgilb.com/managing-local-administrators-with-azure-ad-and-intune/), local *administrators* group might contain unresolved SIDs in relation with Azure
 - [Walking the Tightrope: Maximizing Information Gathering while Avoiding Detection for Red Teams](http://web.archive.org/web/20230518172300/https://www.trustedsec.com/blog/walking-the-tightrope-maximizing-information-gathering-while-avoiding-detection-for-red-teams/)
 - [Oh, Behave! Figuring Out User Behavior](http://web.archive.org/web/20230131001306/https://www.trustedsec.com/blog/oh-behave-figuring-out-user-behavior/)
 
@@ -72,6 +73,12 @@ Recent logons (requires privileged access).
     ~~~
 
 # System info
+
+AD-join and/or AAD-join status.
+
+~~~ bat
+dsregcmd /status
+~~~
 
 OS version and other info.
 

@@ -82,4 +82,5 @@ Untested tools:
 
 References:
 
+- [twitter.com/jaredcatkinson/status/1712517132205044225](https://twitter.com/jaredcatkinson/status/1712517132205044225), how to safely filter out per-user services when writing detections for service creation
 - [The Defender’s Guide to Windows Services](http://web.archive.org/web/20230122191559/https://scribe.rip/@specterops/the-defenders-guide-to-windows-services-67c1711ecba7)

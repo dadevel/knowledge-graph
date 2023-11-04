@@ -80,4 +80,5 @@ Delete value.
 
 References:
 
+- [Registry Attack Vectors](http://web.archive.org/web/20231008122126/https://redteamrecipe.com/Registry-Attack-Vectors/)
 - [The Defender’s Guide to the Windows Registry](http://web.archive.org/web/20230122191601/https://scribe.rip/@specterops/the-defenders-guide-to-the-windows-registry-febe241abc75)

@@ -28,5 +28,6 @@ Untested tools:
 
 References:
 
+- [Moving laterally between Azure AD joined machines](http://web.archive.org/web/20230921105218/https://scribe.rip/@talthemaor/moving-laterally-between-azure-ad-joined-machines-ed1f8871da56)
 - [Give Me an E, Give Me a T, Give Me a W. What Do You Get? RPC!](https://www.akamai.com/blog/security-research/msrpc-defense-measures-in-windows-etw), detection for lateral movement over MSRPC
 - [Traces of Windows remote command execution](http://web.archive.org/web/20230804175041/https://www.synacktiv.com/publications/traces-of-windows-remote-command-execution.html), how to detect various lateral movement techniques

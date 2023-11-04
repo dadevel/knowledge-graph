@@ -4,23 +4,19 @@ title: Sensitive Files
 
 [[notes/windows/index]] [[notes/mitre-attack/credential-access]]
 
-Search for passwords in the PowerShell history.
+Search for passwords in the PowerShell history and transcript logs.
 
 === "PowerShell"
     ~~~ powershell
-    Get-ChildItem -ErrorAction SilentlyContinue -Force ~\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\*.txt | Select-String -Pattern 'passw|secure-string|save-azcontext' | Select-Object -Property Line
-    ~~~
-
-=== "builtin"
-    ~~~ bat
-    findstr.exe /i passw %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\*.txt
+    Get-ChildItem -ErrorAction SilentlyContinue -Force C:\Users\*\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\*.txt | Select-String -Pattern 'passw|securestring|pscredential|connect-azaccount|save-azcontext'
+    Get-ChildItem -ErrorAction SilentlyContinue -Force C:\Transcripts\*\*.txt | Select-String -Pattern 'passw|securestring|pscredential|connect-azaccount|save-azcontext'
     ~~~
 
 Recursively search for passwords in the current directory.
 
 === "PowerShell"
     ~~~ powershell
-    Get-ChildItem -ErrorAction SilentlyContinue -Force -Recurse | Select-String -Pattern 'passw' | Format-Table -AutoSize -Property Path,Line
+    Get-ChildItem -ErrorAction SilentlyContinue -Force -Recurse | Select-String -Pattern 'passw'
     ~~~
 
 === "builtin"

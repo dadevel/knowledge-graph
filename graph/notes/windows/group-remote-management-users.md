@@ -1,8 +1,8 @@
 ---
-title: Remote Management Users
+title: Remote Management Users Group
 ---
 
-*Remote Management Users* / *Remoteverwaltungsbenutzer* is a [[notes/windows/high-value-group]] because members can login via [[notes/network/winrm]].
+*Remote Management Users* / *Remoteverwaltungsbenutzer* is one of the [[notes/windows/high-value-groups]] because members can login via [[notes/network/winrm]].
 
 Find WinRM endpoints where *Remote Management Users* have access.
 

@@ -8,6 +8,8 @@ This [[notes/windows/privilege]] allows to impersonate any token for which you c
 
 Name | Release | Compatibility
 -----|---------|--------------
+[EfsPotato](https://github.com/daem0nc0re/PrivFu/tree/main/ArtsOfGetSystem#efspotato) | 10.23. | Windows 11 22H2 via `\pipe\efsrpc`, unpatched ([source](http://web.archive.org/web/20231010120914/https://blog.hackvens.fr/articles/CoercedPotato.html), [source](https://twitter.com/daem0nc0re/status/1714613181191221743))
+[CoercedPotato](https://github.com/hackvens/CoercedPotato) | 10.23. | Windows 10 - 11, Windows Server 2022, unpatched, tests multiple techniques
 [GodPotato](https://github.com/BeichenDream/GodPotato) | 04.23. | Windows Server 2012 - 2022, unpatched
 [LocalPotato](https://github.com/decoder-it/LocalPotato) | 02.23. | Windows 10 - 11 | patched January 2023, but relay to local WebDAV won't be fixed ([source](https://twitter.com/decoder_it/status/1652309476530085889))
 [RasmanPotato](https://github.com/crisprss/RasmanPotato) | 02.23. | Windows 10, Windows Server 2012 - 2019, unpatched
