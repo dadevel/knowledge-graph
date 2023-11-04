@@ -213,7 +213,7 @@ def preprocess_page(all_pages: dict[str, Page], public_pages: dict[str, Page], p
             WikiLinkExtension(),
             ImageCaptionExtension(),
             SuperFencesCodeExtension(disable_indented_code_blocks=True),
-            HighlightExtension(guess_lang=False, noclasses=True),
+            HighlightExtension(guess_lang=False, noclasses=False),
             TabbedExtension(alternate_style=False),
         ],
         output_format='html',

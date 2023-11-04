@@ -3,6 +3,15 @@
   --justify-normal: left;
   --color-error: #F44336;
   --color-link-light: #2BA5FF;
+
+  --color-bg-secondary: var(--color-accent);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #263238; /* material blue grey 900 */
+        --color-bg-secondary: #455A64; /* material blue grey 700 */
+    }
 }
 
 body {
@@ -74,20 +83,25 @@ small a {
 
 #content pre code {
   max-width: 100%;
+  min-width: 100%;
   padding: 1rem;
   margin: 0.5em 0;
   overflow-x: auto;
   overflow-y: hidden;
   display: inline-block;
+  background-color: var(--color-bg-secondary);
+  box-sizing: border-box;
 }
 
 #content .tabbed-content pre code {
   padding: 0;
+  background-color: transparent;
 }
 
-#content p code {
+#content code {
   padding: 0;
   display: inline;
+  background-color: transparent;
 }
 
 hr {
