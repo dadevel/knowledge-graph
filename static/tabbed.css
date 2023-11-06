@@ -52,6 +52,7 @@
   box-shadow: none;
   background-color: var(--tab-bg-active);
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 /* mvp override */
