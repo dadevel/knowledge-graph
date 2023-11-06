@@ -91,6 +91,7 @@ small a {
   display: inline-block;
   background-color: var(--color-bg-secondary);
   box-sizing: border-box;
+  white-space: pre;
 }
 
 #content .tabbed-content pre code {
