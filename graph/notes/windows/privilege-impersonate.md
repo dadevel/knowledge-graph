@@ -9,13 +9,13 @@ This [[notes/windows/privilege]] allows to impersonate any token for which you c
 Name | Release | Compatibility
 -----|---------|--------------
 [EfsPotato](https://github.com/daem0nc0re/PrivFu/tree/main/ArtsOfGetSystem#efspotato) | 10.23. | Windows 11 22H2 via `\pipe\efsrpc`, unpatched ([source](http://web.archive.org/web/20231010120914/https://blog.hackvens.fr/articles/CoercedPotato.html), [source](https://twitter.com/daem0nc0re/status/1714613181191221743))
-[CoercedPotato](https://github.com/hackvens/CoercedPotato) | 10.23. | Windows 10 - 11, Windows Server 2022, unpatched, tests multiple techniques
+[CoercedPotato](https://github.com/hackvens/CoercedPotato) | 10.23. | Windows 10 - 11, Windows Server 2022, unpatched, tests multiple techniques ([source](http://web.archive.org/web/20231010120914/https://blog.hackvens.fr/articles/CoercedPotato.html))
 [GodPotato](https://github.com/BeichenDream/GodPotato) | 04.23. | Windows Server 2012 - 2022, unpatched
 [LocalPotato](https://github.com/decoder-it/LocalPotato) | 02.23. | Windows 10 - 11 | patched January 2023, but relay to local WebDAV won't be fixed ([source](https://twitter.com/decoder_it/status/1652309476530085889))
 [RasmanPotato](https://github.com/crisprss/RasmanPotato) | 02.23. | Windows 10, Windows Server 2012 - 2019, unpatched
 [McpManagementPotato](https://github.com/zcgonvh/DCOMPotato) | 12.22. | Windows 10 21H2 confiremd, unknown ([source](https://twitter.com/secu_x11/status/1675481117384646656))
 [PrintNotifyPotato](https://github.com/BeichenDream/PrintNotifyPotato) | 12.22. | Windows 10 - 11, Windows Server 2012 - 2022, unpatched
-[JuicyPotatoNG](https://github.com/antoniococo/juicypotatong) | 10.22. | Windows 10 - 11 22H1, up to Windows Server 2022, patched on Windows 11 22H2 ([source](https://github.com/antonioCoco/JuicyPotatoNG/issues/4))
+[JuicyPotatoNG](https://github.com/antoniococo/juicypotatong) | 10.22. | Windows 10 - 11 22H2, up to Windows Server 2022, default CLSID patched on Windows 11 22H2 ([source](https://github.com/antonioCoco/JuicyPotatoNG/issues/4)), but `{A9819296-E5B3-4E67-8226-5E72CE9E1FB7}` still works on 22H2 ([source](http://web.archive.org/web/20231104184420/https://raw.githubusercontent.com/antonioCoco/infosec-talks/main/10_years_of_Windows_Privilege_Escalation_with_Potatoes.pdf))
 [DiagTrackEoP](https://github.com/wh04m1001/diagtrackeop) | 07.22. | at least Windows Server 2019
 [SweetPotato](https://github.com/CCob/SweetPotato) | 05.22. | implements RottenPotato, RogueWinRM, JuciyPotato, PrintSpoofer and EfsPotato, Windows Server 2008 to 2019
 [EfsPotato](https://github.com/zcgonvh/EfsPotato) | 11.21. | unknown

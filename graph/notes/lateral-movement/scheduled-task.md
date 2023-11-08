@@ -49,6 +49,7 @@ Create a scheduled task over a named pipe on SMB to execute a reverse shell.
 
 Untested tools:
 
+- [GhostTask](https://github.com/netero1010/GhostTask), create scheduled task trough direct registry interaction, no event generated
 - [TaskShell](https://github.com/RiccardoAncarani/TaskShell), modifies the command of a scheduled task
 
 References:
