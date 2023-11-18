@@ -231,8 +231,8 @@ def render_page(environment: Environment, opts: Namespace, public_pages: dict[st
         template = 'note'
     else:
         raise RuntimeError('failed to determine page template')
-    public_notes = list(sorted((other for other in public_pages.values() if page.identifier != other.identifier and other.identifier != 'notes/index' and other.identifier.startswith('notes/')), key=lambda p: (p.modified_at, p.title)))
-    public_posts = list(sorted((other for other in public_pages.values() if page.identifier != other.identifier and other.identifier != 'posts/index' and other.identifier.startswith('posts/')), key=lambda p: (p.modified_at, p.title)))
+    public_notes = list(sorted((other for other in public_pages.values() if page.identifier != other.identifier and other.identifier != 'notes/index' and other.identifier.startswith('notes/')), key=lambda p: (-p.modified_at.timestamp(), p.title)))
+    public_posts = list(sorted((other for other in public_pages.values() if page.identifier != other.identifier and other.identifier != 'posts/index' and other.identifier.startswith('posts/')), key=lambda p: (-p.modified_at.timestamp(), p.title)))
     final_html = environment.get_template(f'{template}.html').render(page=page, options=opts, pages=public_pages, notes=public_notes, posts=public_posts)
     output_file = OUTPUT_DIR/page.path.relative_to(GRAPH_DIR).with_suffix('.html')
     output_file.parent.mkdir(parents=True, exist_ok=True)
