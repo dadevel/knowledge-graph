@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 set -eu
+if [[ -z "${CLOUDFLARE_API_TOKEN:-}" ]]; then
+    echo 'error: $CLOUDFLARE_API_TOKEN not set'
+    exit 1
+fi
 cd "$(dirname "$0")"
 poetry run ./build.py
 cd ./public

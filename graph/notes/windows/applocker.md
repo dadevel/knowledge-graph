@@ -1,9 +1,9 @@
 ---
-title: Windows AppLocker
+title: AppLocker
 ---
 
-AppLocker is a security feature on [[notes/windows/index]], that controls which executables, DLLs and scripts an unprivileged user can execute.
-Local service accounts are usually not affected.
+AppLocker is a feature on [[notes/windows/index]], that controls which executables, DLLs and scripts an unprivileged user can execute.
+Local service accounts and admins are usually not affected.
 
 Unlike [[notes/windows/wdac]], Microsoft does not consider AppLocker to be a security boundary.
 The default policies are insecure and can be easily bypassed.
@@ -86,7 +86,27 @@ If they are blocked search for abusable features in 3rd-party applications or in
 
 References:
 
+- [App-o-Lockalypse now - Oddvar Moe - MCTTP 2023](https://www.youtube.com/watch?app=desktop&v=7YEi0oTpqW4)
 - [Windows 10/11: "Schein-Ordner" als Sicherheitsdesaster hebeln Applocker und SRP aus](http://web.archive.org/web/20230310190607/https://www.borncity.com/blog/2023/03/09/windows-10-11-schein-ordner-als-sicherheitsdesaster-hebeln-applocker-und-srp-aus/), AppLocker bypass by combining *Mocked* with *Trusted Folders*
 - [Arbitrary, Unsigned Code Execution Vector in Microsoft.Workflow.Compiler.exe](https://scribe.rip/@specterops/arbitrary-unsigned-code-execution-vector-in-microsoft-workflow-compiler-exe-3d9294bc5efb)
 - [Microsoft recommended block rules](https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules), list of dangerous programs that can be used for bypasses
 - [Ultimate AppLocker bypass list](https://github.com/api0cradle/ultimateapplockerbypasslist)
+
+# Configuration
+
+Open `secpol.msc` as admin and select to *Application Control Policies/AppLocker*.
+Right-click and select *Create default rules* on *Executable Rules*, *Windows Installer Rules*, *Script Rules* and *Packaged App Rules* 
+Then right-click on *AppLocker*, select *Properties*, enable all four rule collections and click *Ok*.
+
+Enable autostart for the *AppIDSvc* service.
+
+~~~ ps1
+Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\AppIDSvc -Name Start -Type DWORD -Value 0x2  -Force
+Start-Service AppIDSvc
+~~~
+
+Apply group policies.
+
+~~~ bat
+gpupdate.exe /force
+~~~
