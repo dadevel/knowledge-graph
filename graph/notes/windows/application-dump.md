@@ -57,10 +57,12 @@ mimikatz.exe "dpapi::chrome /in:%localappdata%googlechromeUSERDA~1defaultcookies
 
 Untested tools:
 
+- [pandora](https://github.com/efchatz/pandora), dumps credentials from various password manager Chrome plugins like 1Password, Bitwarden and LastPass
 - [hekatomb](https://github.com/processus-thief/hekatomb), dumps domain backup keys, downloads credential files from all domain computers, decrypts the files
 
 References:
 
+- [TeamViewer](http://web.archive.org/web/20231215124900/https://whynotsecurity.com/blog/teamviewer/), TeamViewer password was stored in registry encrypted with static key
 - [Extracting Encrypted Credentials from Common Tools](http://web.archive.org/web/20230816141251/https://scribe.rip/@xm-cyber/extracting-encrypted-credentials-from-common-tools-ceb83e7304ce), WinSCP, RoboMongo, MobaXterm
 - [Analyzing LastPass, part 1](http://web.archive.org/web/20221012111523/https://www.mdsec.co.uk/2022/10/analysing-lastpass-part-1/)
 - [Relaying YubiKeys](http://web.archive.org/web/20220919230832/https://cube0x0.github.io/Relaying-YubiKeys/)

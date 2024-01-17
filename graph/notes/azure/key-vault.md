@@ -37,7 +37,7 @@ curl -sSf "$IDENTITY_ENDPOINT" -H "X-IDENTITY-HEADER: $IDENTITY_HEADER" -G -d ap
 Enumerate permissions on a key vault.
 
 ~~~ bash
-curl -sSf "https://management.azure.com/subscriptions/$subscription_id/resourceGroups/Research/providers/Microsoft.KeyVault/vaults/ResearchKeyVault/providers/Microsoft.Authorization/permissions?api-version=2018-07-01" -H "Authorization: Bearer $access_token" | jq -r '.value[]'
+curl -sSf "https://management.azure.com/subscriptions/$subscription_id/resourceGroups/Research/providers/Microsoft.KeyVault/vaults/ResearchKeyVault/providers/Microsoft.Authorization/permissions?api-version=2018-07-01" -H "Authorization: Bearer $arm_token" | jq -r '.value[]'
 ~~~
 
 Enumerate vault objects names.

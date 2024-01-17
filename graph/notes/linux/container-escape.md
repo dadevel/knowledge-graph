@@ -86,7 +86,8 @@ Decode the output with `capsh --decode=00000000a80425fb`.
 
 References:
 
-- [7 Ways to Escape a Container](http://web.archive.org/web/20230905200448/https://www.panoptica.app/research/7-ways-to-escape-a-container), exploitation of `SYS_ADMIN`, `SYS_PTRACE`, `SYS_MODULE`, `DAC_READ_SEARCH` and `DAC_OVERRIDE` capabilities
+- [HTB: CyberMonday](http://web.archive.org/web/20231203124118/https://0xdf.gitlab.io/2023/12/02/htb-cybermonday.html) and [Docker breakout exploit analysis](http://web.archive.org/web/20231203124020/https://scribe.rip/@fun_cuddles/docker-breakout-exploit-analysis-a274fff0e6b3), exploitation of `CAP_DAC_READ_SEARCH`
+- [7 Ways to Escape a Container](http://web.archive.org/web/20230905200448/https://www.panoptica.app/research/7-ways-to-escape-a-container), exploitation of `CAP_SYS_ADMIN`, `CAP_SYS_PTRACE`, `CAP_SYS_MODULE`, `CAP_DAC_READ_SEARCH` and `CAP_DAC_OVERRIDE` capabilities
 
 # Bind Mounts
 

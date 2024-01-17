@@ -64,6 +64,15 @@ Example SAS URL: <https://defcorpcodebackup.blob.core.windows.net/client?sp=rl&s
 
 If `curl`ing the SAS URL fails with *access denied*, try opening it as *Blob Container* in [Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer).
 
+Authenticated enumeration of a Storage Account with Azure CLI.
+
+~~~ bash
+az storage account list | jq -r '.[].name'
+az storage container list --account-name corppbackup | jq -r '.[].name'
+az storage blob list --account-name corppbackup --container-name documents | jq -r '.[].name'
+az storage blob download --account-name corppbackup --container-name documents --name passwords.csv
+~~~
+
 Untested tools:
 
 - [goblob](https://github.com/macmod/goblob)

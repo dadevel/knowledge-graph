@@ -21,6 +21,7 @@ Untested tools:
 
 References:
 
+- [Developers are juicy targets: DCOM & Visual Studio](http://web.archive.org/web/20231224111004/https://adepts.of0x.cc/visual-studio-dcom/)
 - [Windows Lateral Movement Part 2 – DCOM](http://web.archive.org/web/20230322175432/https://www.mdsec.co.uk/2020/09/i-like-to-move-it-windows-lateral-movement-part-2-dcom/), using `ExecuteExcel4Macro` or `RegisterXLL`
 - [Lateral movement using Internet Explorer DCOM object and StdRegProv](http://web.archive.org/web/20230224075848/https://scribe.rip/@VakninHai/lateral-movement-using-internet-explorer-dcom-object-and-stdregprov-4f11362650e5)
 - [Lateral movement using DCOM objects and C#](http://web.archive.org/web/20230101172433/https://klezvirus.github.io/RedTeaming/LateralMovement/LateralMovementDCOM/)

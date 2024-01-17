@@ -4,6 +4,11 @@ title: Windows Persistence
 
 [[notes/mitre-attack/persistence]] on [[notes/windows/index]].
 
+References:
+
+- [Persistence techniques detected by PersistenceSniper](https://github.com/last-byte/PersistenceSniper/wiki/3-%E2%80%90-Detections)
+- [UWP / Packaged Desktop Application Startup Persistence](https://github.com/nasbench/Misc-Research/blob/main/Other/UWP-Applications-Persistence.md)
+
 # Account Creation
 
 ~~~ bat

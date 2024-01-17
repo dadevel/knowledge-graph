@@ -16,6 +16,8 @@ Notes:
 
 Untested tools:
 
+- [IoctlHunter](https://github.com/z4ksec/ioctlhunter), analyses IOCTL calls
+- [ioctlance](https://github.com/zeze-zeze/ioctlance), finds vulnerabilities in WDM drivers
 - [hvci-loldrivers-check](https://github.com/trailofbits/HVCI-loldrivers-check), extracts HVCI blocklist on current system and compares against all drivers from [loldrivers.io](https://www.loldrivers.io/)
 - [check_vulnerabledrivers.ps1](https://gist.github.com/api0cradle/d52832e36aaf86d443b3b9f58d20c01d), check installed drivers against [loldrivers.io](https://www.loldrivers.io/)
 - [HackSysExtremeVulnerableDriver](https://github.com/hacksysteam/HackSysExtremeVulnerableDriver), driver to learn kernel exploitation
@@ -24,6 +26,7 @@ References:
 
 - [List of vulnerable drivers](https://github.com/eclypsium/Screwed-Drivers/blob/master/DRIVERS.md)
 - [Living Off The Land Drivers](https://www.loldrivers.io/), authoritative reference
+- [BYOVD Protection Is A Lie](http://web.archive.org/web/20231212011149/https://vu.ls/blog/byovd-protection-is-a-lie/)
 - [Hunting Vulnerable Kernel Drivers](http://web.archive.org/web/20231101190125/https://blogs.vmware.com/security/2023/10/hunting-vulnerable-kernel-drivers.html) and [Driver Exploit PoCs](https://github.com/TakahiroHaruyama/VDR/tree/main/PoCs/firmware)
 - [Journey into Windows Kernel Exploitation: The Basics](http://web.archive.org/web/20230820105350/https://scribe.rip/@neuvik/journey-into-windows-kernel-exploitation-the-basics-fff72116ca33)
 - [gist.github.com/yardenshafir/048a957e7e52978b32e43a7e4e1e72bb](https://gist.github.com/yardenshafir/048a957e7e52978b32e43a7e4e1e72bb), vulnerable drivers from [loldrivers.io](https://www.loldrivers.io/) that load with HVCI blocklist version 25314
@@ -37,6 +40,6 @@ Focus on 3rd-party drivers.
 Drivers marked as `stopped` can still be interacted with.
 
 ~~~ powershell
-Get-WmiObject Win32_PnPSignedDriver | Select-Object DeviceName,DriverVersion,Manufacturer
+Get-WmiObject Win32_PnPSignedDriver | Select-Object DeviceName,DriverVersion,Manufacturer | ?{$_.Manufacturer -notlike 'Microsoft*' -and $_.Manufacturer -notlike 'Windows*' -and $_.Manufacturer -notlike '(Standard*'}
 driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name','Start Mode',Path
 ~~~

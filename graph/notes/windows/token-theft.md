@@ -4,6 +4,8 @@ title: Token Theft
 
 Dump access tokens from process memory of Microsoft Office, Teams, OneDrive or other SaaS products as unprivileged user.
 
+The log files in `%localappdata%\Microsoft\Olk\EBWebView\Default\Session Storage` might contain O365 refresh tokens ([source](https://twitter.com/__Retrospect/status/1742929451523117325)).
+
 Untested tools:
 
 - [AzTokenFinder](https://github.com/hackmichnet/aztokenfinder), extracts strings from process memory that look like JWTs

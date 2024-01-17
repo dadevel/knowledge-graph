@@ -42,4 +42,4 @@ Connect with the client from Windows to forward local port 53/udp to port 5300 o
 Untested tools:
 
 - [github.com/meteorite/chisel](https://github.com/Meteorite/chisel/tree/feature-socks-udp-associate), fork with SOCKS5 UDP support
-- [wstunnel](https://github.com/erebe/wstunnel), chisel alternative written in Haskell
+- [wstunnel](https://github.com/erebe/wstunnel), chisel alternative written in Rust, with UDP support

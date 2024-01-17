@@ -22,3 +22,7 @@ Check the output for secrets.
 ~~~ bash
 curl -sSf "https://management.azure.com/subscriptions/$subscription_id/resourceGroups/$group_name/providers/Microsoft.Resources/deployments/BadExample_corp.onmicrosoft.com.stagingenv/exportTemplate?api-version=2021-04-01" -H "Authorization: Bearer $(jq -r .accessToken .roadtools_auth)" -d '' | jq
 ~~~
+
+References:
+
+- [Privilege Escalation from an ARM template](http://web.archive.org/web/20231203123133/https://scribe.rip/@rogierdijkman/project-miaow-9f334e8ec09e) and [miaow](https://github.com/SecureHats/miaow)

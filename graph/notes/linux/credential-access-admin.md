@@ -57,6 +57,12 @@ tdbdump ./cache_*.ldb | grep -ia passw
 hashcat -O -w 3 -a 0 -m 1800 '$6$...' ./rockyou.txt
 ~~~
 
+Fetch LDAP passwords from `/etc/sssd/sssd.conf` and decode them with [sss_deobfuscate](https://github.com/mludvig/sss_deobfuscate) ([source](https://swisskyrepo.github.io/InternalAllTheThings/active-directory/ad-adds-linux/#extract-accounts-from-etcsssdsssdconf)).
+
+~~~ bash
+grep 'ldap_.*_authtok' /etc/sssd/sssd.conf
+~~~
+
 Untested tools:
 
 - [LinikatzV2](https://github.com/Orange-Cyberdefense/LinikatzV2), can extract plain passwords from memory

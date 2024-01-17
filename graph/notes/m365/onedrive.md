@@ -30,8 +30,9 @@ list(drive.get_items())
 drive.get_item_by_path('/doucment.docx').download('downloads')
 ~~~
 
-Search for credentials in OneDrive with [TeamFiltration](https://github.com/Flangvik/TeamFiltration).
+Search for credentials in OneDrive with [TeamFiltration](https://github.com/Flangvik/TeamFiltration) or [GraphRunner](https://github.com/dafthack/GraphRunner/wiki/Pillage-Modules#invoke-searchsharepointandonedrive).
 
 Untested tools:
 
+- [OneDriveExplorer](https://github.com/Beercow/OneDriveExplorer), CLI and GUI to reconstruct OneDriver folder hierarchy from `$usercid.dat` and `$usercid.dat.previous`
 - [Token Farm](https://github.com/rootsecdev/Azure-Red-Team/tree/master/Tokens), python scripts to access Outlook emails and OneDrive

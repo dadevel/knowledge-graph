@@ -47,11 +47,13 @@ More interesting resources:
 
 Untested tools:
 
+- [AzDanglingDnsFinder](https://github.com/davidokeyode/AzDanglingDnsFinder), discovers subdomain takeover
 - `Get-AzPasswords` in [MicroBurst](https://github.com/NetSPI/MicroBurst)
 - [PowerZure](https://github.com/hausec/powerzure)
 
 References:
 
+- [Automating Managed Identity Token Extraction in Azure Container Registries](https://www.netspi.com/blog/technical/cloud-penetration-testing/automating-managed-identity-token-extraction-in-azure-container-registries/)
 - [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles), comprehensive list of Azure RBAC roles
 - [IAM concepts](./azure-iam-concepts.pdf) from [Visualizing multi cloud IAM concepts](http://web.archive.org/web/20221212203821/https://scribe.rip/@julian-wieg/visualizing-multi-cloud-iam-concepts-63525967c0a7)
 - [twitter.com/_wald0/status/1629007202509017089](https://twitter.com/_wald0/status/1629007202509017089), stealing managed identities from Azure Kubernetes Service (AKS)

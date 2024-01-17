@@ -36,4 +36,5 @@ Untested tools:
 
 References:
 
+- [ACE Strings](https://learn.microsoft.com/en-us/windows/win32/secauthz/ace-strings)
 - [A brief summary of the various versions of the Security Descriptor Definition Language](http://web.archive.org/web/20221130222211/https://devblogs.microsoft.com/oldnewthing/20220510-00/?p=106640)

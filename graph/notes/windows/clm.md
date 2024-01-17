@@ -88,3 +88,7 @@ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe .\runspace.csproj
 Other tools:
 
 - [PowerShdll](https://github.com/p3nt4/powershdll), DLL that starts PowerShell in custom runspace
+
+References:
+
+- [Bypass-CLM.ps1](https://github.com/mgeeky/Penetration-Testing-Tools/tree/master/red-teaming/Bypass-ConstrainedLanguageMode), bypass CLM via COM

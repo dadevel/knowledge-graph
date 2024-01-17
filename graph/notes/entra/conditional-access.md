@@ -26,6 +26,7 @@ This application [...] can only be accessed from [...] devices [...] that meet t
 
 References:
 
+- [Conditional Access - Common Microsoft 365 Security Mistakes Series](http://web.archive.org/web/20231120182701/https://campbell.scot/conditional-access-common-microsoft-365-security-mistakes-series/)
 - [An Azure Tale of VPN, Conditional Access and MFA Bypass](http://web.archive.org/web/20230815182930/https://simondotsh.com/infosec/2023/08/15/azure-tale-vpn-ca-mfa-bypass.html), practical example of MFA bypass trough weak CAPs
 
 # Practice

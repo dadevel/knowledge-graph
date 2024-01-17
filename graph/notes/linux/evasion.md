@@ -52,4 +52,6 @@ Untested tools:
 
 References:
 
+- [in-memory-only fd-less ELF execution with Perl](http://web.archive.org/web/20231123043528/https://tmpout.sh/3/10.html), implemented in [exec_elf64.pl](https://github.com/ilv/elf/blob/main/exec_elf64.pl)
+- [BPFDoor Evasive Linux Backdoor and Malware Forensic Investigation Presentation](https://www.youtube.com/watch?v=psBNrROty2w), potential [BPFDoor source code](https://web.archive.org/web/20230403230803/https://pastebin.com/kmmJuuQP)
 - [THC's favorite tips, tricks & hacks](https://github.com/hackerschoice/thc-tips-tricks-hacks-cheat-sheet/)

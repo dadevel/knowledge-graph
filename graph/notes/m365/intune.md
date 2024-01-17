@@ -11,5 +11,7 @@ It can take multiple hours for the script to execute.
 
 References:
 
+- [twitter.com/skatterbrainzz/status/1725628793203691856](https://twitter.com/skatterbrainzz/status/1725628793203691856), export LAPS passwords with `Get-LapsAadPassword`
+- [Use PowerShell and MS Graph to locate an Intune device](http://web.archive.org/web/20230401140754/https://www.systanddeploy.com/2021/04/use-powershell-and-ms-graph-to-locate.html)
 - [Attacking Azure & Azure AD, Part II - Moving from Cloud to On-Premise](http://web.archive.org/web/20231028213625/https://scribe.rip/@specterops/attacking-azure-azure-ad-part-ii-5f336f36697d)
 - [Death from above: Lateral movement from Azure to on-prem AD](http://web.archive.org/web/20221214191423/https://scribe.rip/@specterops/death-from-above-lateral-movement-from-azure-to-on-prem-ad-d18cb3959d4d)

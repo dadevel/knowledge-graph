@@ -40,6 +40,21 @@ curl -sSf "https://management.azure.com/subscriptions/$subscription_id/resourceG
 curl -sSf "https://management.azure.com/subscriptions/$subscription_id/resourceGroups/Engineering/providers/Microsoft.Automation/automationAccounts/HybridAutomation/providers/Microsoft.Authorization/roleDefinitions/$role_def_id?api-version=2022-04-01' -H "Authorization: Bearer $arm_token" | jq -r '.properties'
 ~~~
 
+# Stored Variables and Credentials
+
+Variables and credentials can be stored in an automation account.
+They can be read by executing a runbook with the following payload:
+
+~~~ ps1
+$v = Get-AutomationVariable -name myvar
+$v
+$c = Get-AutomationPSCredential -Name mycreds
+$c.GetNetworkCredential().username
+$c.GetNetworkCredential().password
+~~~
+
+# Hybrid Worker
+
 Enumerate hybrid worker groups.
 
 ~~~ bash

@@ -10,5 +10,6 @@ The APIs to interact with Entra are Microsoft Graph at [graph.microsoft.com](htt
 
 References:
 
+- [Microsoft Incident Response lessons on preventing cloud identity compromise](https://web.archive.org/web/20231207073102/https://www.microsoft.com/en-us/security/blog/2023/12/05/microsoft-incident-response-lessons-on-preventing-cloud-identity-compromise/)
 - [Azure AD introduction for red teamers](http://web.archive.org/web/20230606001425/https://www.synacktiv.com/en/publications/azure-ad-introduction-for-red-teamers.html)
 - [Protection of privileged users and groups by Azure AD Restricted Management Administrative Units](http://web.archive.org/web/20230630231017/https://www.cloud-architekt.net/restricted-management-administrative-unit/)

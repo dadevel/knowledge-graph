@@ -33,6 +33,7 @@ Untested tools:
 
 References:
 
+- [Bitwarden Heist - How to Break Into Password Vaults Without Using Passwords](https://web.archive.org/web/20240105085636/https://blog.redteam-pentesting.de/2024/bitwarden-heist/)
 - [Detecting DPAPI Backup Key Theft](http://web.archive.org/web/20230731161355/https://www.dsinternals.com/en/dpapi-backup-key-theft-auditing/)
 - [DPAPI: Don't Put Administration Passwords In](http://web.archive.org/web/20230719134515/https://www.login-securite.com/2023/07/13/dpapi-dont-put-administration-passwords-in/)
 - [Operational guidance for offensive user DPAPI abuse](https://posts.specterops.io/operational-guidance-for-offensive-user-dpapi-abuse-1fb7fac8b107)

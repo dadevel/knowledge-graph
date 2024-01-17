@@ -310,6 +310,7 @@ EOF
 
 References:
 
+- [HTB: Download](https://web.archive.org/web/20231111211114/https://0xdf.gitlab.io/2023/11/11/htb-download.html)
 - [The oldest privesc: injecting careless administrators' terminals using TTY pushback](http://web.archive.org/web/20230312123234/https://www.errno.fr/TTYPushback.html)
 
 ## More Ideas

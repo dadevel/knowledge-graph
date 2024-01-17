@@ -18,6 +18,10 @@ Connect over RDP.
 
 > **Note:** RDP works over Chisels SOCKS proxy, but not over Sliver.
 
+Untested tools:
+
+- [evilrdp](https://github.com/skelsec/evilrdp)
+
 # Pass the Hash
 
 [[notes/ad/pass-the-hash]] to RDP does not work by default because RDP requires interactive logon.

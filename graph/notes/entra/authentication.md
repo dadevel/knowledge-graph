@@ -65,6 +65,8 @@ It can be implemented with legacy [[notes/entra/ssso]] or based on [[notes/entra
 Existing tokens are not invalidated when you PIM.
 The token can be stolen before PIM and used after the role has been activated ([source](https://twitter.com/miketheitguy/status/1703597245671907797)).
 
+Not every role activation requires MFA unless Conditional Access Authentication Contexts are configured ([source](http://web.archive.org/web/20231120152912/https://campbell.scot/pim-common-microsoft-365-security-mistakes-series/)).
+
 # Continuous Access Evaluation
 
 Continuous Access Evaluation can invalidate access tokens before their default expiry time of 1h.
