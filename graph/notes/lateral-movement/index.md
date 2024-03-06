@@ -2,7 +2,7 @@
 title: Lateral Movement
 ---
 
-Related tactics: [[notes/mitre-attack/lateral-movement]]
+> [[notes/mitre-attack/tactic]] [TA0008](https://attack.mitre.org/tactics/TA0008/): The adversary is trying to move through your environment.
 
 ![Lateral movement techniques ([source](https://www.thehacker.recipes/ad/movement/ntlm))](./lateral-movement-techniques.jpg)
 

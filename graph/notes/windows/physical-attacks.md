@@ -29,10 +29,17 @@ Attacks against [[notes/windows/index]] computers that require physical access.
     netexec smb ws01.corp.local -d corp.local -u jdoeadm -p 'passw0rd' -M wcc
     ~~~
 
+Check if BitLocker key is protected by TPM PIN.
+Without a PIN the key can be sniffed ([source](https://www.youtube.com/watch?v=wTl4vEednkQ)).
+
+~~~ ps1
+$v = Get-BitLockerVolume -MountPoint C:\
+$v.KeyProtector.KeyProtectorType -contains 'tpmpin'
+~~~
+
 Also check:
 
 - BIOS password set?
-- full disk encryption protected by TPM+PIN?
 
 Untested tools:
 

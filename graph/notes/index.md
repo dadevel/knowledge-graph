@@ -17,5 +17,9 @@ this is a knowledge base centered around pentesting and red teaming.
 - [[notes/file-transfer/index]]
 - [[notes/linux/index]]
 - [[notes/windows/index]]
+- [[notes/ad/index]]
+    - [[notes/ad/ntlm-relaying]]
+    - [[notes/ad/ntlmv1|NTLMv1 Attacks]]
+    - [[notes/ad/sccm|SCCM Attacks]]
 - [[notes/azure/index]], [[notes/entra/index]] & [[notes/m365/index]]
 - more to come ...

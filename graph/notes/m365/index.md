@@ -15,9 +15,6 @@ Untested tools:
 
 References:
 
-- [Microsoft Graph Permission Explorer](https://graphpermissions.merill.net/permission/index.html), explanation of all MS Graph permissions
-- [AbuseAzureAPIPermissions](https://github.com/Hagrid29/AbuseAzureAPIPermissions), abusable MS Graph permissions
-- [Azure AD built-in roles](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference)
 - [Introducing BloodHound 4.3 — Get Global Admin More Often](http://web.archive.org/web/20230422095641/https://scribe.rip/@specterops/introducing-bloodhound-4-3-get-global-admin-more-often-5795cbf535b2), links to further explanations for all new nodes
 - [twitter.com/_wald0/status/1555715352864010242](https://twitter.com/_wald0/status/1555715352864010242), AzureHound usage example in combination with [BARK](https://github.com/BloodHoundAD/BARK)
 - [Red Teaming Microsoft Azure](http://web.archive.org/web/20230601103012/https://improsec.com/tech-blog/read2own)

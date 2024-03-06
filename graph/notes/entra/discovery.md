@@ -8,7 +8,7 @@ Enumerate users, groups and permissions with [[notes/tools/roadtools]].
 
 ~~~ bash
 roadrecon auth -c 1950a258-227b-4e31-a9cf-717495945fc2 --refresh-token "$(jq -r .refreshToken .roadtools_auth)"
-roadrecon gather
+roadrecon gather --mfa  # MFA info requires global reader
 roadrecon plugin policies
 roadrecon gui
 firefox ./caps.html

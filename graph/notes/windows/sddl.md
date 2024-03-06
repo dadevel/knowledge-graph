@@ -32,6 +32,7 @@ S-1-1-0
 
 Untested tools:
 
+- [sddl_py](https://github.com/t94j0/sddl_py), SDDL parser
 - [SdDumper](https://github.com/daem0nc0re/TangledWinExec/tree/main/SdDumper), SDDL parser
 
 References:

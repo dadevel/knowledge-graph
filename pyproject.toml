@@ -2,9 +2,10 @@
 name = "knowledge-graph"
 version = "0.0.1"
 description = ""
-authors = ["dadevel@example.com>"]
+authors = ["dadevel <dadevel@disroot.org>"]
 license = "MIT"
 readme = "README.md"
+packages = [{include = "build.py"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

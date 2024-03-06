@@ -13,3 +13,9 @@ They are M365 groups under the hood.
 The *General* channel can always be read by all members of a team ([source](https://twitter.com/ianmoran/status/1711850556614979716))
 
 Open [account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com/r#/groups) to list, join and edit M365 groups ([source](http://web.archive.org/web/20230608000655/https://clement.notin.org/blog/2021/03/01/risks-of-microsoft-teams-and-microsoft-365-groups/)).
+
+You can list public groups with [[notes/tools/roadtools]].
+
+~~~ bash
+sqlite3 ./roadrecon.db 'SELECT displayName FROM Groups WHERE isPublic';
+~~~

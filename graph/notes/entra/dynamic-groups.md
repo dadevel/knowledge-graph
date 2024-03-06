@@ -7,8 +7,8 @@ Rules based on the properties *email*, *otherMails* and *manager* are insecure, 
 
 You can list insecure dynamic groups and their membership rules in [[notes/tools/roadtools]].
 
-~~~ sql
-SELECT description, displayName, membershipRule  FROM Groups WHERE groupTypes LIKE '%DynamicMembership%' AND (membershipRule LIKE '%user.email%' OR membershipRule LIKE '%user.manager%' OR membershipRule LIKE '%user.otherMails%');
+~~~ bash
+sqlite3 ./roadrecon.db "SELECT description, displayName, membershipRule FROM Groups WHERE groupTypes LIKE '%DynamicMembership%' AND (membershipRule LIKE '%user.email%' OR membershipRule LIKE '%user.manager%' OR membershipRule LIKE '%user.otherMails%')"
 ~~~
 
 Invite attacker as guest into the tenant.

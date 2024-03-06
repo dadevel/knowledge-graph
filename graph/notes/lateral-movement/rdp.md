@@ -18,9 +18,17 @@ Connect over RDP.
 
 > **Note:** RDP works over Chisels SOCKS proxy, but not over Sliver.
 
-Untested tools:
+References:
+
+- [How Authentication Works when you use Remote Desktop](http://web.archive.org/web/20230928175714/https://syfuhs.net/how-authentication-works-when-you-use-remote-desktop), including Remote Credential Guard and PKU2U
+
+Other tools:
 
 - [evilrdp](https://github.com/skelsec/evilrdp)
+
+Untested tools:
+
+- [IronRDP](https://github.com/Devolutions/IronRDP), in Rust
 
 # Pass the Hash
 

@@ -80,6 +80,12 @@ AD-join and/or AAD-join status.
 dsregcmd /status
 ~~~
 
+Show hostname, domain and logon server.
+
+~~~ bat
+net config workstation
+~~~
+
 OS version and other info.
 
 === "PowerShell"
@@ -255,7 +261,7 @@ tasklist.exe /m:ntdll.dll
 
 === "PowerShell"
     ~~~ powershell
-    Get-ScheduledTask | Where-Object {$_.State -ne 'disabled' -and $_.Author -notlike 'Microsoft*'} | Select-Object -Property '*' -ExpandProperty Actions -ExcludeProperty PSComputerName,CimClass,CimInstanceProperties,CimSystemProperties | ft -Property TaskName,Execute,Arguments,ClassId,Data
+    Get-ScheduledTask | Where-Object {$_.State -ne 'disabled' -and $_.Author -notlike 'Microsoft*'} | Select-Object -Property '*' -ExpandProperty Actions -ExcludeProperty PSComputerName,CimClass,CimInstanceProperties,CimSystemProperties | ?{$_.Execute -ne $null -and $_.Execute -notlike '%windir%*' -and $_.Execute -notlike '%systemroot%*'} | ft -Property TaskName,Execute,Arguments,ClassId,Data
     ~~~
 
 === "builtin"

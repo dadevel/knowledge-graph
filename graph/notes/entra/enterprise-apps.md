@@ -29,6 +29,9 @@ Authenticate as the app.
 roadtx auth -c f072c4a6-b440-40de-983f-a7f3bd317d8f -p "$secret_text" -t defcorphq.onmicrosoft.com -r 'https://management.azure.com' --as-app
 ~~~
 
+Applications can have *Application Permissions* and *Delegated Permissions*.
+The former are permissions that are valid tenant-wide, the latter are permissions in the context of a user of the app which the user must grant explicitly to the app (OAuth Consent Grant).
+
 References:
 
 - [Untangling Azure Active Directory principals & access permissions](http://web.archive.org/web/20221026210553/https://csandker.io/2022/10/19/Untangling-Azure-Permissions.html) and [Untangling Azure Active Directory Permissions II: Privileged Access](https://web.archive.org/web/20230308114005/https://csandker.io/2022/11/10/Untangling-Azure-II-Privileged-Access.html)

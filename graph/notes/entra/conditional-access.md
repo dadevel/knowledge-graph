@@ -57,6 +57,19 @@ node ./ca/main.js --mapping --clearPolicyCache --clearTokenCache --clearMappingC
 
 # Bypasses
 
+Check multiple techniques.
+
+=== "[[notes/tools/trevorspray]]
+    ~~~ bash
+    trevorspray -u john.doe@corp.com -p 'Start123!' --url https://login.windows.net/$tenantid/oauth2/token
+    ~~~
+
+=== [MFASweep](https://github.com/dafthack/mfasweep)
+    ~~~ powershell
+    Import-Module .\MFASweep.ps1
+    Invoke-MFASweep -username somebody@corp.onmicrosoft.com -password passw0rd
+    ~~~
+
 ## Recently Recruited Employee
 
 Just try to authenticate, maybe you are lucky and your user hasn't enrolled MFA yet.
@@ -95,13 +108,6 @@ MFA might not be enforced for all clients.
 For example Microsofts *Security Defaults* policy excludes Microsoft Graph unless legacy per user MFA is enabled ([source](http://web.archive.org/web/20230901192937/https://scribe.rip/@rootsecdev/azure-ad-security-defaults-mfa-bypass-with-graph-api-86a5d6f57d4a)).
 
 ## Legacy Authentication
-
-Check with [MFASweep](https://github.com/dafthack/mfasweep).
-
-~~~ powershell
-Import-Module .\MFASweep.ps1
-Invoke-MFASweep -username somebody@corp.onmicrosoft.com -password passw0rd
-~~~
 
 ## Other SaaS Apps
 

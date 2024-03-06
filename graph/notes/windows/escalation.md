@@ -54,6 +54,7 @@ Untested tools:
 
 References:
 
+- [Windows Local Privilege Escalation Cookbook](https://github.com/nickvourd/Windows-Local-Privilege-Escalation-Cookbook#vulnerabilities)
 - [book.hacktricks.xyz/windows/checklist-windows-privilege-escalation](https://book.hacktricks.xyz/windows/checklist-windows-privilege-escalation)
 - [exploit-notes.hdks.org/exploit/windows/privilege-escalation](https://exploit-notes.hdks.org/exploit/windows/privilege-escalation/)
 - [Escalating Privileges via Third-Party Windows Installers](https://web.archive.org/web/20230720190244/https://www.mandiant.com/resources/blog/privileges-third-party-windows-installers)
@@ -124,6 +125,10 @@ Get the current service configuration.
 sc.exe qc snmptrap
 ~~~
 
+References:
+
+- [Demystifying Windows Service permissions configuration](http://web.archive.org/web/20230610210019/https://decoder.cloud/2019/02/07/demystifying-windows-service-permissions-configuration/)
+
 ## Insecure Service Security Descriptor
 
 Set the account to `NT Authority\System`.
@@ -186,6 +191,10 @@ User can modify registry keys of a service ([source](http://web.archive.org/web/
 accesschk.exe %USERNAME% -kwsu HKLM\System\CurrentControlSet\Services
 ~~~
 
+References:
+
+- [Windows RpcEptMapper Service Insecure Registry Permissions EoP](http://web.archive.org/https://itm4n.github.io/windows-registry-rpceptmapper-eop/), unpatched in Windows Server 2008
+
 # Always Install Elevated
 
 If the `AlwaysInstallElevated` registry key is set to `1`, unprivileged users can run MSI installers with admin privileges.
@@ -206,3 +215,26 @@ Execute the MSI.
 ~~~ bat
 msiexec.exe /quiet /qn /i .\pwn.msi
 ~~~
+
+# Point and Print Misconfiguration
+
+Check for Point and Print configurations that reintroduce variants of the PrintNightmare vulnerability ([source](https://github.com/LuemmelSec/Client-Checker/blob/main/Client-Checker.ps1)).
+
+~~~ ps1
+$value = Get-ItemPropertyvalue -Path 'HKLM:\Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint' -Name 'RestrictDriverInstallationToAdministrators' -ErrorAction SilentlyContinue
+if ($value -eq 0) {
+    Write-Host 'vulnerable! users can install package aware printer drivers'
+}
+$value = Get-ItemPropertyvalue -Path 'HKLM:\Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint' -Name 'NoWarningNoElevationOnInstall' -ErrorAction SilentlyContinue
+if ($value -eq 0) {
+    Write-Host 'vulnerable! users can install non package aware printer drivers for new connections'
+}
+$value = Get-ItemPropertyvalue -Path 'HKLM:\Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint' -Name 'UpdatePromptSettings' -ErrorAction SilentlyContinue
+if ($value -eq 1 -or $value -eq 2) {
+    Write-Host 'vulnerable! users can install non package aware printer drivers for updated connections'
+}
+~~~
+
+References:
+
+- [A Practical Guide to PrintNightmare in 2024](http://web.archive.org/web/20240128231552/https://itm4n.github.io/printnightmare-exploitation/)

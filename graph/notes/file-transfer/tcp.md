@@ -61,3 +61,7 @@ nc -v -q 1 -w 1 192.0.2.1 8080 < ./input.txt
 socat -d -d tcp:192.0.2.1:8080 file:input.txt
 bash -c 'cat ./input.txt > /dev/tcp/192.0.2.1/8080'
 ~~~
+
+Untested tools:
+
+- [croc](https://github.com/schollz/croc)

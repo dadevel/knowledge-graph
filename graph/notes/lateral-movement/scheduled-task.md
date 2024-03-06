@@ -51,7 +51,7 @@ Execute a command in the context of a logged-in user ([source](https://github.co
 
 === "[[notes/tools/netexec]]"
     ~~~ bash
-    netexec smb srv01.corp.local --local-auth -u administrator -p 'passw0rd' -M schtask -o CMD='whoami' USER='corp.local\jdoeadm'
+    netexec smb srv01.corp.local --local-auth -u administrator -p 'passw0rd' -M schtask_as -o CMD='whoami' USER='corp.local\jdoeadm'
     ~~~
 
 Untested tools:

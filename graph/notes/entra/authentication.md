@@ -24,6 +24,12 @@ Sign in using an existing refresh token (client ID must be provided explicitly).
 roadtx auth -c azps --refresh-token '0.AQsAH...'
 ~~~
 
+Sign in with refresh token and specify a new resource.
+
+~~~ bash
+roadtx auth --refresh-token "$(jq -r .refreshToken .roadtools_auth)" --client "$(jq -r ._clientId .roadtools_auth)" --tenant "$(jq -r .tenantId .roadtools_auth)" -r msgraph
+~~~
+
 Use Azure CLI as service principal.
 
 ~~~ bash

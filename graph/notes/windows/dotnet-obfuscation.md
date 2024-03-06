@@ -18,3 +18,7 @@ Simple tricks for obfuscating .NET assemblies:
 - delete console help and logo
 - remove functions and features that you don't need (!)
 - build a release
+
+Other tools:
+
+- [NET-Obfuscate](https://github.com/binaryscary/net-obfuscate), some assemblies are detected by AMSI nevertheless, also breaks some assemblies

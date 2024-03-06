@@ -46,3 +46,11 @@ $ciphertext = Get-Content ./pkginstaller.cred | ConvertTo-SecureString -Key $aes
 $plaintext = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($ciphertext))
 echo $plaintext
 ~~~
+
+Get a password from a PSCredential XML file.
+
+~~~ powershell
+$c = Import-CliXml -Path ./connection.xml
+$p = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($credential.Password))
+echo $p
+~~~

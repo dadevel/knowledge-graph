@@ -63,4 +63,5 @@ code=REFRESH_TOKEN&id_token=ACCESS_TOKEN
 
 Untested tools:
 
+- [MsGraphFunzy](https://github.com/Mr-Un1k0d3r/MsGraphFunzy), download emails and attachments trough Microsoft Graph
 - [Token Farm](https://github.com/rootsecdev/Azure-Red-Team/tree/master/Tokens), python scripts to access Outlook emails and OneDrive

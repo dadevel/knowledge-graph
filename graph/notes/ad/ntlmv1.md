@@ -1,5 +1,5 @@
 ---
-title: Attacking NTLMv1
+title: NTLMv1
 ---
 
 NTLMv1 is the first version of the NTLM authentication protocol, the predecessor of NTLMv2 and insecure in multiple ways.
@@ -72,11 +72,11 @@ If [crack.sh](https://crack.sh) is currently down you can crack both NTLMv1 resp
 See [ntlmv1-multi](https://github.com/evilmog/ntlmv1-multi) for more details.
 Responses captured from users can be looked up in a huge database with [shuck.sh](https://shuck.sh).
 
-In any case the resulting NT hash can be used to forge a RC4 [[notes/ad/silver-ticket]], [[notes/ad/delegate2thyself]] or perform a [[notes/ad/dcsync]] in case of a domain controller.
+In any case the resulting NT hash can be used to forge a RC4 [[notes/ad/silver-ticket]], [[notes/ad/kerberos-delegate2thyself]] or perform a [[notes/ad/dcsync]] in case of a domain controller.
 
 References:
 
-- [twitter.com/_EthicalChaos_/status/1710185074061152501](https://twitter.com/_EthicalChaos_/status/1710185074061152501), cracking NTLMv1 hashes takes two days with four RTX 3080s
+- [twitter.com/\_EthicalChaos\_/status/1710185074061152501](https://twitter.com/_EthicalChaos_/status/1710185074061152501), cracking NTLMv1 hashes takes two days with four RTX 3080s
 - [NTLMv1 Multitool](https://github.com/evilmog/ntlmv1-multi)
 - [Cracking NETLM/NETNTLMv1 authentication](https://crack.sh/netntlm/)
 - [NetNTLMtoSilverTicket](https://github.com/notmedic/netntlmtosilverticket)
@@ -84,12 +84,12 @@ References:
 # Relay
 
 Computers that still support NTLMv1 are a wonderful [[notes/ad/ntlm-relay-sink]], because NTLMv1 allows cross-protocol relaying from SMB to LDAP by dropping the MIC.
-Additionally relay protections like SMB Signing and LDAP Singing don't apply to NTLMv1 and relaying from SMB to TLS endpoints like HTTPS and LDAPS is possible as long as EPA is not set to `required` because NTLMv1 does not support Channel Binding.
+Additionally relay protections like SMB Signing and LDAP Signing don't apply to NTLMv1 and relaying from SMB to TLS endpoints like HTTPS and LDAPS is possible as long as EPA is not set to `required` because NTLMv1 does not support Channel Binding.
 
 [[notes/ad/ntlm-relay-from-smb|Coerce NTLM authentication over SMB]] from a valuable computer and [[notes/ad/ntlm-relay-to-ldap|relay to LDAP]] on a domain controller.
 
 ~~~ bash
-impacket-ntlmrelayx --no-http-server --no-raw-server --no-wcf-server -smb2support --no-dump --no-da --no-acl --no-validate-privs --remove-mic -i -t ldap://dc01.corp.local
+impacket-ntlmrelayx -debug --no-http-server --no-raw-server --no-wcf-server -smb2support --no-dump --no-da --no-acl --no-validate-privs --remove-mic -i -t ldap://dc01.corp.local
 ~~~
 
 References:

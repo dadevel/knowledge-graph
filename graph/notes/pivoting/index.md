@@ -2,7 +2,7 @@
 title: Pivoting
 ---
 
-Related tactics: [[notes/mitre-attack/lateral-movement]], [[notes/mitre-attack/command-and-control]]
+Related tactics: [[notes/lateral-movement/index]], [[notes/mitre-attack/command-and-control]]
 
 Bypass firewalls and access new subnets.
 

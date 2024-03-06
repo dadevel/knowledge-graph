@@ -30,7 +30,7 @@ list(drive.get_items())
 drive.get_item_by_path('/doucment.docx').download('downloads')
 ~~~
 
-Search for credentials in OneDrive with [TeamFiltration](https://github.com/Flangvik/TeamFiltration) or [GraphRunner](https://github.com/dafthack/GraphRunner/wiki/Pillage-Modules#invoke-searchsharepointandonedrive).
+To search for credentials in OneDrive see [[notes/m365/sharepoint]].
 
 Untested tools:
 

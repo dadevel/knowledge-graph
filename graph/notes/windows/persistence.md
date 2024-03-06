@@ -137,10 +137,39 @@ Under construction 🚧
 
 # DLL Hijacking
 
-Under construction 🚧
-
-As local admin on a Windows Server write `wlanapi.dll` anywhere into the system `PATH`, then trigger NetMan from an interactive session trough COM ([source](http://web.archive.org/web/20230629210511/https://itm4n.github.io/windows-server-netman-dll-hijacking/)).
+For example as local admin on a Windows Server write `wlanapi.dll` anywhere into the system `PATH`, then trigger NetMan from an interactive session trough COM ([source](http://web.archive.org/web/20230629210511/https://itm4n.github.io/windows-server-netman-dll-hijacking/)).
+This is also applicable to regular users.
 
 # COM Hijacking
 
-Under construction 🚧
+Register a missing class as regular user.
+
+Untested tools:
+
+- [COM-Hunter](https://github.com/nickvourd/COM-Hunter), automates COM hijacking
+
+References:
+
+- [Persistence: Component Object Model (COM) hijacking](http://web.archive.org/web/20230927041600/https://stmxcsr.com/persistence/com-hijacking.html)
+- [Hunting for COM Hijacks](https://training.zeropointsecurity.co.uk/courses/take/red-team-ops/texts/38149212-hunting-for-com-hijacks)
+- [COM Hijacking for Persistence](http://web.archive.org/web/20230320120052/https://cyberstruggle.org/2021/12/14/com-hijacking-for-persistence/)
+- [Persistence - COM Hijacking](http://web.archive.org/web/20230208031319/https://pentestlab.blog/2020/05/20/persistence-com-hijacking/)
+- [COM Hijacking candidate CLSIDs](https://gist.github.com/mgeeky/7d2f8363f5e8961daa51b56869101a8a)
+
+# Printer Configuration
+
+Requires local admin rights.
+
+References:
+
+- [Persistence and Privilege Escalation on Windows via Print Monitors](http://web.archive.org/web/20231215103114/https://stmxcsr.com/persistence/print-monitor.html)
+- [Persistence and Privilege Escalation on Windows via Print Processors](http://web.archive.org/web/20230927045919/https://stmxcsr.com/persistence/print-processor.html)
+
+# Remote Management Tools
+
+Install one of the many remote management tools like TeamViewer or AnyDesk as local admin.
+
+References:
+
+- [rmm.csv](https://github.com/0x706972686f/RMM-Catalogue/blob/main/rmm.csv)
+- [Analysis on legit tools abused in human operated ransomware](http://web.archive.org/web/20230901192802/https://jsac.jpcert.or.jp/archive/2023/pdf/JSAC2023_1_1_yamashige-nakatani-tanaka_en.pdf)

