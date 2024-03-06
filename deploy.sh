@@ -11,4 +11,8 @@ if [[ -n "$(find . -type f -ipath '*private*')" ]]; then
     echo 'abort: deployment contains private notes'
     exit 1
 fi
+if grep -qr '^draft: true'; then
+    echo 'abort: deployment contains drafts'
+    exit 1
+fi
 exec wrangler pages deploy --project-name pentest-notes --commit-dirty true .
